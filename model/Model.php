@@ -7,7 +7,7 @@ class Model
   function __construct()
   {
     $this->db = new PDO('mysql:host=localhost;'
-    .'dbname=db_tareas;charset=utf8'
+    .'dbname=fueelperro_db;charset=utf8'
     , 'root', '');
   }
 }
