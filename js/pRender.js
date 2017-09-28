@@ -1,23 +1,21 @@
 $(document).ready(function(){
 
-  "use strict";
+  $.ajax({
+    url: "http://localhost/proyectos/tpE1/home",
+      success: function(result){
+        $("#js-pRender").html(result);
+      }
+  });
 
   $(".anchor-nav").on("click", function (event) {
     event.preventDefault();
-    let seccion=$(this).attr("id");
+    let seccion_pagina=$(this).attr("id");
     $.ajax({
-      "url": seccion+".php",
-      "method": "GET",
-      "dataType": "HTML",
-      "success": mostrarAjax,
-      "error": manejarError
+      url: "http://localhost/proyectos/tpE1/"+seccion_pagina,
+        success: function(result){
+          $("#js-pRender").html(result);
+        }
     });
-  });
+  })
 
-  function mostrarAjax (data){
-    $("#js-insertar-html").html(data);
-  }
-  function manejarError(data){
-      alert("error");
-    }
-}
+});
