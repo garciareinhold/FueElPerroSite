@@ -6,7 +6,9 @@ include_once 'config/ConfigApp.php';
 include_once 'model/Model.php';
 include_once 'view/View.php';
 include_once 'controller/Controller.php';
-include_once 'controller/UsuarioController.php';
+include_once 'controller/ProductoController.php';
+include_once 'controller/CategoriaController.php';
+include_once 'controller/StaticController.php';
 include_once 'controller/AdminController.php';
 
 function parseURL($url)
