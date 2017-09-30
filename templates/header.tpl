@@ -28,8 +28,15 @@
             <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a  href="#" class="anchor-nav" id="home">Home</a></li>
-                <li><a href="#" class="anchor-nav" id="designs">Diseños</a></li>
+                <li class="dropdown">
+                  <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diseños <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="anchor-nav" id=categorias>Categorias</a></li>
+                    <li><a href="#" class="anchor-nav" id=delantales>Listado Delantales</a></li>
+                  </ul>
+                </li>
                 <li><a href="#" class="anchor-nav" id="contacto">Contacto</a></li>
+                <li><a href="#" class="anchor-nav" id="login">Login</a></li>
               </ul>
             </section>
           </section>
