@@ -1,11 +1,11 @@
 <?php
 class LoginModel extends Model
 {
-  function getUsuario($administrador){
-    $sentencia = $this->db->prepare( "select * from admin where admin = ? limit 1");
-    $sentencia->execute([$administrador]);
+  function getUser($userName){
+    $sentencia = $this->db->prepare( "select * from usuario where usuario = ? limit 1");
+    $sentencia->execute([$userName]);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
   }
 }
-
  ?>

@@ -5,6 +5,7 @@
   class CategoriaController extends Controller
   {
   function __construct(){
+    
       $this->view = new CategoriaView();
       $this->model = new CategoriaModel();
 

@@ -7,7 +7,7 @@ $(document).ready(function(){
       }
   });
 
-  $(".anchor-nav").on("click", function (event) {
+  $(".navegacion").on("click", function (event) {
     event.preventDefault();
     let seccion_pagina=$(this).attr("id");
     $.ajax({

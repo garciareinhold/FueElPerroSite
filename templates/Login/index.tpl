@@ -7,8 +7,8 @@
               <input type="text" class="form-control" id="usuario" name="usuario" placeholder="User" required>
             </div>
             <div class="form-group">
-              <label for="contraseña">Password</label>
-              <input type="password" class="form-control" id="contraseña" name ="contraseña" placeholder="Password" required>
+              <label for="clave">Password</label>
+              <input type="password" class="form-control" id="clave" name ="password" placeholder="Password" required>
             </div>
             <div class="form-group">
               <label for="mail">Mail</label>

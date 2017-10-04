@@ -15,5 +15,8 @@
     public function contacto(){
       $this->view->mostrarContacto();
     }
+    public function panel(){
+      $this->view->mostrarPanel();
+    }
 }
  ?>

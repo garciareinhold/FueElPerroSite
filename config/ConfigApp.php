@@ -21,8 +21,11 @@ class ConfigApp
       'borrarDelantal'=> 'ProductoController#deleteDel',
       'editarDelantal' => 'ProductoController#editDel',
       'login' => 'LoginController#login',
-      'autenticacion' => 'LoginController#auntenticar',
-      'logout' => 'LoginController#cerrarSesion'
+      'autenticacion' => 'LoginController#autenticar',
+      'logout' => 'LoginController#cerrarSesion',
+      'admin' => 'AdminController#index',
+      'adminCategoria'=>'AdminController#categoria',
+
     ];
 
 }

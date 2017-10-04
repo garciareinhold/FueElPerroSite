@@ -14,6 +14,9 @@ class StaticView extends View
   function mostrarProductos(){
     $this->smarty->display('templates/productos.tpl');
   }
+  function mostrarPanel(){
+    $this->smarty->display('templates/panelAdmin.tpl');
+  }
 
   }
 

@@ -16,24 +16,18 @@ class LoginController extends Controller
     $this->view->mostrarLogin();
   }
 
-  public function auntenticar()
+  public function autenticar()
   {
       $usuario = $_POST['usuario'];
-      $contraseña = $_POST['contraseña'];
+      $clave = $_POST['password'];
       $mail = $_POST['mail'];
-      echo ($usuario);
-      echo ($contraseña);
-      echo ($mail);
 
-      if((!empty($usuario)||!empty($mail)) && !empty($contraseña)){
-
-        $admin = $this->model->getUsuario($usuario);
-
-        if((!empty($admin)) && (password_verify($contraseña, $admin[0]['contraseña']))&& (password_verify($mail, $admin[0]['mail']))) {
-            session_start();
-            $_SESSION['USER'] = $usuario;
+      if((!empty($usuario)) && (!empty($clave)) && (!empty($mail))){
+       $data = $this->model->getUser($usuario);
+        if((!empty($data)) && (password_verify($clave, $data[0]['clave']))){
+            $_SESSION['USER'] = $data;
             $_SESSION['LAST_ACTIVITY'] = time();
-            header('Location: '.HOME);
+            header('Location: '.ADMIN);
         }
         else{
             $this->view->mostrarLogin('Los datos ingresados son incorrectos');
