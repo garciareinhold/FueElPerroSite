@@ -39,7 +39,7 @@ class LoginController extends Controller
   {
     session_start();
     session_destroy();
-    header(HOME);
+    header("Location: ".HOME);
   }
 }
 

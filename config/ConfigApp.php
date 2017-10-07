@@ -5,6 +5,7 @@ class ConfigApp
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
+      //Usuario Navegacion
       ''=> 'UserStaticController#index',
       'home'=> 'UserStaticController#home',
       'contacto' => 'UserStaticController#contacto',
@@ -12,20 +13,23 @@ class ConfigApp
       'delantal' => 'Producto#detalle',
       'categorias' => 'CategoriaController#categoria',
       'delantalesCategoria' => 'Producto#productoPorCategoria',
-      'listarCategorias' => 'CategoriaController#mostarListaCat',
-      'agregarCategoria'=> 'CategoriaController#createCat',
-      'borrarCategoria'=> 'CategoriaController#deleteCat',
-      'editarCategoria' => 'CategoriaController#editCat',
-      'listaDelantales' => 'ProductoController#mostarListaDel',
+      //ADMIN ABM CAT
+      'listarCategoria' => 'AdminCategoriaController#mostrarPanelCategoria',
+      'agregarCategoria'=> 'AdminCategoriaController#createCat',
+      'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
+      'editarCategoria' => 'AdminCategoriaController#editCat',
+      //ADMIN ABM ITEM
+      'listarDelantal' => 'ProductoController#mostrarPanelDelantal',
       'agregarDelantal'=> 'ProductoController#createDel',
       'borrarDelantal'=> 'ProductoController#deleteDel',
       'editarDelantal' => 'ProductoController#editDel',
+      //Login/logout
       'login' => 'LoginController#login',
       'autenticacion' => 'LoginController#autenticar',
+      'logout' => 'LoginController#cerrarSesion',
+      //Admin Navegacion
       'admin' => 'AdminStaticController#index',
-      'adminCategoria'=>'AdminCategoriaController#editCategoria',
-      'adminDelantal'=>'AdminProducotController#editProducto',
-      'logout' => 'LoginController#cerrarSesion'
+      'adminDelantal'=>'AdminProducotController#editProducto'
 
 
     ];
