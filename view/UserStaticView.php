@@ -1,5 +1,5 @@
 <?php
-class StaticView extends View
+class UserStaticView extends View
 {
   function mostrarIndex(){
      $this->smarty->display('templates/index.tpl');

@@ -5,9 +5,9 @@ class ConfigApp
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      ''=> 'StaticController#index',
-      'home'=> 'StaticController#home',
-      'contacto' => 'StaticController#contacto',
+      ''=> 'UserStaticController#index',
+      'home'=> 'UserStaticController#home',
+      'contacto' => 'UserStaticController#contacto',
       'delantales' => 'ProductoController#productos',
       'delantal' => 'Producto#detalle',
       'categorias' => 'CategoriaController#categoria',
@@ -22,9 +22,11 @@ class ConfigApp
       'editarDelantal' => 'ProductoController#editDel',
       'login' => 'LoginController#login',
       'autenticacion' => 'LoginController#autenticar',
-      'logout' => 'LoginController#cerrarSesion',
-      'admin' => 'AdminController#index',
-      'adminCategoria'=>'AdminController#categoria',
+      'admin' => 'AdminStaticController#index',
+      'adminCategoria'=>'AdminCategoriaController#editCategoria',
+      'adminDelantal'=>'AdminProducotController#editProducto',
+      'logout' => 'LoginController#cerrarSesion'
+
 
     ];
 

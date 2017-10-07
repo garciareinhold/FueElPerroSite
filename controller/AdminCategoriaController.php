@@ -1,11 +1,11 @@
 <?php
   include_once('model/CategoriaModel.php');
-  include_once('view/AdminView.php');
+  include_once('view/AdminCategoriaView.php');
 
-  class AdminController extends Controller
+  class AdminCategoriaController extends Controller
   {
   function __construct(){
-      $this->view = new AdminView();
+      $this->view = new AdminCategoriaView();
       $this->model = new CategoriaModel();
 
 }

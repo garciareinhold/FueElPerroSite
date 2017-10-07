@@ -8,8 +8,10 @@ include_once 'view/View.php';
 include_once 'controller/Controller.php';
 include_once 'controller/ProductoController.php';
 include_once 'controller/CategoriaController.php';
-include_once 'controller/StaticController.php';
-include_once 'controller/AdminController.php';
+include_once 'controller/UserStaticController.php';
+include_once 'controller/AdminStaticController.php';
+include_once 'controller/AdminProductoController.php';
+include_once 'controller/AdminCategoriaController.php';
 include_once 'controller/LoginController.php';
 include_once 'controller/SecuredController.php';
 

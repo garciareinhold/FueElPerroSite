@@ -1,10 +1,10 @@
 <?php
-  include_once('view/StaticView.php');
+  include_once('view/UserStaticView.php');
 
-  class StaticController extends Controller
+  class UserStaticController extends Controller
   {
   function __construct(){
-      $this->view = new StaticView();
+      $this->view = new UserStaticView();
     }
     public function index(){
       $this->view->mostrarIndex();
