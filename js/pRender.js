@@ -54,6 +54,7 @@ $(document).ready(function(){
 // Partial Render Admin
   function adminMostrarAjax(result)
     {
+      console.log("entre en el .html");
       $("#js-adminPrender").html(result);
         $( ".editarCat" ).on( "click", function( event ) {
           event.preventDefault();
@@ -99,10 +100,10 @@ $(document).ready(function(){
   }
   $(".adminNavegacion").on("click", function (event) {
     event.preventDefault();
-    console.log("entre");
+    console.log("entre en el p Render");
     let seccion_pagina=$(this).attr("id");
       $.ajax({
-        url: location.href + seccion_pagina,
+        url: seccion_pagina,
         success: adminMostrarAjax
       })
       });

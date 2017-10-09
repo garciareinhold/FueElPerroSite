@@ -14,6 +14,7 @@ class ConfigApp
       'categorias' => 'CategoriaController#categoria',
       'delantalesCategoria' => 'Producto#productoPorCategoria',
       //ADMIN ABM CAT
+      'mostrarEditarCategoria' => 'AdminCategoriaController#showEditCat',
       'listarCategoria' => 'AdminCategoriaController#mostrarCategoria',
       'agregarCategoria'=> 'AdminCategoriaController#createCat',
       'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
