@@ -1,12 +1,13 @@
-<article class="container-fluid" >
-  <section>
-    {include file="Admin/categorias.tpl"}
-  </section>
+<section>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1>Agregar Categoria</h1>
+      <h1>Editar Categoria</h1>
       <div class="alert alert-danger" role="alert">Aca va el error</div>
-      <form  id="agregarCat" data-id="agregarCategoria" method="post">
+      <form  class="editarCategorias"  method="post">
+        <div class="form-group">
+          <label for="id">idCategoria</label>
+          <input type="text" class="form-control" id="categoria" name="categoria"  value="{{$id_categoria}}">
+        </div>
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" class="form-control" id="nombre" name="nombre"  value="" placeholder="Nombre de la categoria">
@@ -23,4 +24,4 @@
       </form>
     </div>
   </div>
-</article>
+</section>

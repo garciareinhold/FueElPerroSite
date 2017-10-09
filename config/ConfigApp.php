@@ -14,22 +14,23 @@ class ConfigApp
       'categorias' => 'CategoriaController#categoria',
       'delantalesCategoria' => 'Producto#productoPorCategoria',
       //ADMIN ABM CAT
-      'listarCategoria' => 'AdminCategoriaController#mostrarPanelCategoria',
+      'listarCategoria' => 'AdminCategoriaController#mostrarCategoria',
       'agregarCategoria'=> 'AdminCategoriaController#createCat',
       'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
+      'mostrarEditarCategoria' => 'AdminCategoriaController#showEditCat',
       'editarCategoria' => 'AdminCategoriaController#editCat',
-      //ADMIN ABM ITEM
-      'listarDelantal' => 'ProductoController#mostrarPanelDelantal',
-      'agregarDelantal'=> 'ProductoController#createDel',
-      'borrarDelantal'=> 'ProductoController#deleteDel',
-      'editarDelantal' => 'ProductoController#editDel',
+      //ADMIN ABM PRODUCTO
+      'listarProducto' => 'AdminProductoController#mostrarProducto',
+      'agregarProducto'=> 'AdminProductoController#createProd',
+      'borrarProducto'=> 'AdminProductoController#deleteProd',
+      'editarProducto' => 'AdminProductoController#editProd',
+      'mostrarEditarProducto' => 'AdminProductoController#showEditProd',
       //Login/logout
       'login' => 'LoginController#login',
       'autenticacion' => 'LoginController#autenticar',
       'logout' => 'LoginController#cerrarSesion',
       //Admin Navegacion
       'admin' => 'AdminStaticController#index',
-      'adminDelantal'=>'AdminProducotController#editProducto'
 
 
     ];

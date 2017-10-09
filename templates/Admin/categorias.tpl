@@ -7,8 +7,8 @@
         <ul>
           <li>{$categoria['nombre_categoria']}</li>
           <li>{$categoria['precio_categoria']}</li>
-          <a href="#" id="borrar" data-id="{$categoria['id_categoria']}"><span class="glyphicon glyphicon-trash" aria-hidden="true">Borrar</span></a>
-          <a href="#" id="editar" data-id="{$categoria['id_categoria']}"><span class="glyphicon glyphicon-ok" aria-hidden="true">Editar</span></a>
+          <a href="#" class="borrarCat"  data-id="{$categoria['id_categoria']}"><span class="glyphicon glyphicon-trash" aria-hidden="true">Borrar</span></a>
+          <a href="#" class="editarCat"  data-id="{$categoria['id_categoria']}"><span class="glyphicon glyphicon-ok" aria-hidden="true">Editar</span></a>
         </ul>
       </figcaption>
     </figure>

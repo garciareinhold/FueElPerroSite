@@ -1,5 +1,5 @@
 {include file="Admin/header.tpl"}
-  <section class="container-fluid" id="js-pRender">
+  <section class="container-fluid" id="js-adminPrender">
     <h1>Bienvenido!</h1>
   </section>
 {include file="Admin/footer.tpl"}

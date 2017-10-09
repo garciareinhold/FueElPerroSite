@@ -16,6 +16,11 @@ class AdminCategoriaModel extends Model
     $sentencia = $this->db->prepare( "delete from categoria where id_categoria=?");
     $sentencia->execute([$value]);
   }
+  public function editarCategoria($id,$nombre,$precio,$imagen)
+  {
+    $sentencia = $this->db->prepare('UPDATE categoria SET imagen=?, precio_categoria=?, nombre_categoria=? where id_categoria=?');
+    $sentencia->execute(array($nombre,$precio,$imagen,$id));
+  }
 }
 
  ?>
