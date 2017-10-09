@@ -20,8 +20,6 @@
      $productos = $this->model->listarProductos();
      $categorias= $this->catModel->listarCategorias();
      $this->view->mostrarProductos($productos, $categorias);
-     echo("termine el mostrar");
-
    }
    public function createDel()
    {
@@ -31,9 +29,7 @@
      $imagen = $_POST['imagen'];
 
     if(!empty($talle) && !empty($categoria)&& !empty($descripcion)&& !empty($imagen)){
-      echo("entre en el if");
       $this->model->guardarProducto($talle, $categoria, $descripcion,$imagen);
-      echo("termine el guardar");
       $this->mostrarPanelDelantal();
     }
     else{
@@ -59,9 +55,9 @@
       $this->view->errorCrear();
     }
    }
-   public function deleteProd()
+   public function deleteDel()
    {
-       $id_categoria = $_POST['id'] ;
+       $id_producto = $_POST['id'] ;
        $this->model->borrarProducto($id_producto);
        $this->mostrarPanelDelantal();
    }

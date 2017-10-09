@@ -20,9 +20,10 @@ class ConfigApp
       'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
       'editarCategoria' => 'AdminCategoriaController#editCat',
       //ADMIN ABM ITEM
+      'mostrarEditarProducto' => 'AdminProductoController#showEditProd',
       'listarProducto' => 'AdminProductoController#mostrarPanelDelantal',
       'agregarProd'=> 'AdminProductoController#createDel',
-      'borrarDelantal'=> 'AdminProductoController#deleteDel',
+      'borrarProducto'=> 'AdminProductoController#deleteDel',
       'editarDelantal' => 'AdminProductoController#editDel',
       //Login/logout
       'login' => 'LoginController#login',

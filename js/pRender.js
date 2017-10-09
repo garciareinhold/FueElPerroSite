@@ -42,13 +42,12 @@ $(document).ready(function(){
     }
 
     function agregarProducto(data) {
-      console.log("entre a agregar producto");
       $.post("agregarProd",data,adminMostrarAjax);
     }
 
     function borrarProd(data) {
-      let id_categoria= {id: data};
-      $.post("borrarProducto",id_categoria,adminMostrarAjax);
+      let id_producto= {id: data};
+      $.post("borrarProducto",id_producto,adminMostrarAjax);
     }
 
 // Partial Render Admin
@@ -84,7 +83,7 @@ $(document).ready(function(){
             $( ".editarProd" ).on( "click", function( event ) {
               event.preventDefault();
               let data = $(this).data("id");
-              mostrarEditar(data);
+              mostrarEditarProd(data);
             });
             $( ".borrarProd" ).on( "click", function( event ) {
               event.preventDefault();
