@@ -41,9 +41,9 @@ $(document).ready(function(){
       $.post("mostrarEditarProducto",id_categoria,adminMostrarAjax);
     }
 
-    function agregarProd(data) {
+    function agregarProducto(data) {
       console.log("entre a agregar producto");
-      $.post("agregarProducto",data,adminMostrarAjax);
+      $.post("agregarProd",data,adminMostrarAjax);
     }
 
     function borrarProd(data) {
@@ -60,6 +60,11 @@ $(document).ready(function(){
           event.preventDefault();
           let data = $(this).data("id");
           mostrarEditarCat(data);
+        });
+        $( ".elegirCategoria" ).on( "click", function( event ) {
+          event.preventDefault();
+          let data = $(this).val();
+          $("#categoria").val(data);
         });
         $( ".borrarCat" ).on( "click", function( event ) {
           event.preventDefault();
@@ -90,7 +95,7 @@ $(document).ready(function(){
               event.preventDefault();
               let data = $(this).serialize();
               console.log(data);
-              agregarProd(data);
+              agregarProducto(data);
             });
             $( ".editarProductos" ).on( "submit", function( event ) {
                 event.preventDefault();

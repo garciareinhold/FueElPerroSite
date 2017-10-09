@@ -8,6 +8,8 @@
           <ul>{$delantal['id_categoria']}
             <li>Talle disponible:{$delantal['talle_disponible']}</li>
             <li>Descripcion: {$delantal['descripcion']}</li>
+            <a href="#" class="borrarProd"  data-id="{$delantal['id_delantal']}"><span class="glyphicon glyphicon-trash" aria-hidden="true">Borrar</span></a>
+            <a href="#" class="editarProd"  data-id="{$delantal['id_delantal']}"><span class="glyphicon glyphicon-ok" aria-hidden="true">Editar</span></a>
           </ul>
         </figcaption>
       </figure>

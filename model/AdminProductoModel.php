@@ -6,10 +6,12 @@ class AdminProductoModel extends Model
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  public function guardarProducto($talle, $descripcion,$categoria, $imagen)
+  public function guardarProducto($talle, $categoria, $descripcion,$imagen)
   {
     $sentencia = $this->db->prepare('INSERT INTO delantal(talle_disponible,descripcion,id_categoria,imagen) VALUES(?,?,?,?)');
     $sentencia->execute([$talle, $descripcion,$categoria, $imagen]);
+    echo("termine el guardar(model)");
+
   }
   public function borrarProducto($value)
   {

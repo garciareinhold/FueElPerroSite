@@ -1,32 +1,40 @@
 <?php
   include_once('model/AdminProductoModel.php');
   include_once('view/AdminProductoView.php');
+  include_once('model/AdminCategoriaModel.php');
+
 
   class AdminProductoController extends Controller
   {
   function __construct(){
       $this->view = new AdminProductoView();
       $this->model = new AdminProductoModel();
+      $this->catModel = new AdminCategoriaModel();
 
 }
     public function index(){
       $this->view->mostrarIndex();
     }
 
-   public function mostrarProducto(){
+   public function mostrarPanelDelantal(){
      $productos = $this->model->listarProductos();
-     $this->view->mostrarProductos($productos);
+     $categorias= $this->catModel->listarCategorias();
+     $this->view->mostrarProductos($productos, $categorias);
+     echo("termine el mostrar");
+
    }
-   public function createProd()
+   public function createDel()
    {
      $talle = $_POST['talle'];
      $categoria = $_POST['categoria'];
      $descripcion=$_POST['descripcion'];
      $imagen = $_POST['imagen'];
-     
+
     if(!empty($talle) && !empty($categoria)&& !empty($descripcion)&& !empty($imagen)){
+      echo("entre en el if");
       $this->model->guardarProducto($talle, $categoria, $descripcion,$imagen);
-      $this->mostrarProducto();
+      echo("termine el guardar");
+      $this->mostrarPanelDelantal();
     }
     else{
       $this->view->errorCrear();
@@ -40,12 +48,12 @@
    public function editProd()
    {
      $id_categoria = $_POST['categoria'] ;
-     $nombre = $_POST['nombre'];
-     $precio = $_POST['precio'];
+     $talle = $_POST['talle'];
+     $descripcion = $_POST['descripcion'];
      $imagen = $_POST['imagen'];
-    if(!empty($nombre) && !empty($precio)&& !empty($imagen)){
-      $this->model->editarProducto($id_producto,$imagen,$precio,$nombre);
-      $this->mostrarProducto();
+    if(!empty($id_categoria) && !empty($talle)&& !empty($imagen)&& !empty($descripcion)){
+      $this->model->editarProducto($id_categoria,$talle,$descripcion,$imagen);
+      $this->mostrarPanelDelantal();
     }
     else{
       $this->view->errorCrear();
@@ -55,7 +63,7 @@
    {
        $id_categoria = $_POST['id'] ;
        $this->model->borrarProducto($id_producto);
-       $this->mostrarProducto();
+       $this->mostrarPanelDelantal();
    }
 }
  ?>

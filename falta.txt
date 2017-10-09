@@ -1,7 +1,7 @@
 USER: ver producto en detalle(al hacer click en el mismo)
 USER: ver productos por categoria(al hacer click en la categoria)
-LOGIN: permisos para entrar a /admin
 Terminar el ABM de productos
+LOGIN: permisos para entrar a /admin
 Detalles, capturar errores de input vacios, etc.
 
 
