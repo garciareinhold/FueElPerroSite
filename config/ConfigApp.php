@@ -14,7 +14,7 @@ class ConfigApp
       'categorias' => 'CategoriaController#categoria',
       'delantalesCategoria' => 'Producto#productoPorCategoria',
       //ADMIN ABM CAT
-      'listarCategoria' => 'AdminCategoriaController#mostrarPanelCategoria',
+      'listarCategoria' => 'AdminCategoriaController#mostrarCategoria',
       'agregarCategoria'=> 'AdminCategoriaController#createCat',
       'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
       'editarCategoria' => 'AdminCategoriaController#editCat',
@@ -29,8 +29,6 @@ class ConfigApp
       'logout' => 'LoginController#cerrarSesion',
       //Admin Navegacion
       'admin' => 'AdminStaticController#index',
-      'adminDelantal'=>'AdminProducotController#editProducto',
-
       'db'=>'dbAutoClass#iniciar'
     ];
 
