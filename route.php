@@ -14,7 +14,7 @@ include_once 'controller/AdminProductoController.php';
 include_once 'controller/AdminCategoriaController.php';
 include_once 'controller/LoginController.php';
 include_once 'controller/SecuredController.php';
-
+include_once 'controller/dbAutoClass.php';
 
 
 function parseURL($url)

@@ -5,7 +5,7 @@ $(document).ready(function(){
     event.preventDefault();
     let seccion_pagina=$(this).attr("id");
       $.ajax({
-        url: "http://localhost/proyectos/tpE1/"+seccion_pagina,
+        url: location.href + seccion_pagina,
         success: function(result){
           $("#js-pRender").html(result);
         }
@@ -102,7 +102,7 @@ $(document).ready(function(){
     console.log("entre");
     let seccion_pagina=$(this).attr("id");
       $.ajax({
-        url: "http://localhost/proyectos/tpE1/"+seccion_pagina,
+        url: location.href + seccion_pagina,
         success: adminMostrarAjax
       })
       });

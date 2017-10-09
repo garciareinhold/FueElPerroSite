@@ -3,3 +3,8 @@ USER: ver productos por categoria(al hacer click en la categoria)
 LOGIN: permisos para entrar a /admin
 Terminar el ABM de productos
 Detalles, capturar errores de input vacios, etc.
+
+
+9/10
+ahi arregle las rutas y hice un deploy de la base de datos, se crea la base de datos accediendo a /db y te tira un mensaje cuando termina
+esta el model la vista todo junto en un controller, no me mates. hay que acomodarlo pero por lo menos anda
