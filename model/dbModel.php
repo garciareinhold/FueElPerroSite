@@ -1,14 +1,28 @@
 <?php
+<<<<<<< HEAD
 class dbModel
 {
 private $_connection;
 private static $_instance;
+=======
+
+class dbModel
+{
+
+private $_connection;
+private static $_instance;
+
+>>>>>>> 5a00f88bd2bce01a750e7457ab3b35646aa18f1a
 public static function getInstance(){
   if(!self::$_instance){
     self::$_instance = new self();
   }
   return (self::$_instance);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5a00f88bd2bce01a750e7457ab3b35646aa18f1a
 function __construct(){
   try {
     $this->_connection = new PDO('mysql:host=localhost',"root","");
@@ -33,6 +47,10 @@ public function buildDBfromFile($dbName){
     echo $e;
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5a00f88bd2bce01a750e7457ab3b35646aa18f1a
 function loadSQLSchema($nombre){
   $querys = fopen($nombre, "r+");
   $sql = "";
