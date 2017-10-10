@@ -1,17 +1,5 @@
 $(document).ready(function(){
 
-// Partial Render Usuario
-  $(".userNavegacion").on("click", function (event) {
-    event.preventDefault();
-    let seccion_pagina=$(this).attr("id");
-      $.ajax({
-        url: location.href + seccion_pagina,
-        success: function(result){
-          $("#js-pRender").html(result);
-        }
-      });
-  });
-
 //ABM categorias
   function editarCat(data) {
     $.post("editarCategoria",data,adminMostrarAjax);
@@ -37,11 +25,12 @@ $(document).ready(function(){
       $.post("editarProducto",data,adminMostrarAjax);
     }
     function mostrarEditarProd(data) {
-      let id_categoria= {id: data};
-      $.post("mostrarEditarProducto",id_categoria,adminMostrarAjax);
+      let id_delantal= {id: data};
+      $.post("mostrarEditarProducto",id_delantal,adminMostrarAjax);
     }
 
     function agregarProducto(data) {
+      console.log("entre en la funcion");
       $.post("agregarProd",data,adminMostrarAjax);
     }
 
@@ -49,17 +38,30 @@ $(document).ready(function(){
       let id_producto= {id: data};
       $.post("borrarProducto",id_producto,adminMostrarAjax);
     }
+    /*function autenticar(data) {
+      console.log(data);
+      $.post("autenticacion",data,adminMostrarAjax);
+      console.log("entre en autenticar");
+    }*/
 
-// Partial Render Admin
+// Partial Render
   function adminMostrarAjax(result)
     {
-      console.log("entre en el .html");
-      $("#js-adminPrender").html(result);
+      console.log("entre en el mostrarAjax");
+      console.log(result);
+      $("#js-pRender").html(result);
         $( ".editarCat" ).on( "click", function( event ) {
           event.preventDefault();
           let data = $(this).data("id");
           mostrarEditarCat(data);
         });
+        /*$( ".loginForm" ).on( "submit", function( event ) {
+          event.preventDefault();
+          console.log("entre en el binding");
+          let data = $(this).serialize();
+          console.log(data);
+          autenticar(data);
+        });*/
         $( ".elegirCategoria" ).on( "click", function( event ) {
           event.preventDefault();
           let data = $(this).val();
@@ -93,18 +95,17 @@ $(document).ready(function(){
             $( "#agregarProd" ).on( "submit", function( event ) {
               event.preventDefault();
               let data = $(this).serialize();
-              console.log(data);
+              console.log("entre en el binding");
               agregarProducto(data);
             });
-            $( ".editarProductos" ).on( "submit", function( event ) {
+            $( ".editarDelantales" ).on( "submit", function( event ) {
                 event.preventDefault();
                 let data = $(this).serialize();
                 editarProd(data);
               });
   }
-  $(".adminNavegacion").on("click", function (event) {
+  $(".navegacion").on("click", function (event) {
     event.preventDefault();
-    console.log("entre en el p Render");
     let seccion_pagina=$(this).attr("id");
       $.ajax({
         url: seccion_pagina,

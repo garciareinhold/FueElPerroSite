@@ -24,7 +24,7 @@ class ConfigApp
       'listarProducto' => 'AdminProductoController#mostrarPanelDelantal',
       'agregarProd'=> 'AdminProductoController#createDel',
       'borrarProducto'=> 'AdminProductoController#deleteDel',
-      'editarDelantal' => 'AdminProductoController#editDel',
+      'editarProducto' => 'AdminProductoController#editDel',
       //Login/logout
       'login' => 'LoginController#login',
       'autenticacion' => 'LoginController#autenticar',

@@ -4,9 +4,10 @@
   include_once('model/AdminCategoriaModel.php');
 
 
-  class AdminProductoController extends Controller
+  class AdminProductoController extends SecuredController
   {
   function __construct(){
+      parent::__construct();
       $this->view = new AdminProductoView();
       $this->model = new AdminProductoModel();
       $this->catModel = new AdminCategoriaModel();
@@ -39,16 +40,19 @@
    public function showEditProd()
    {
      $id_producto = $_POST['id'] ;
-     $this->view->mostrarFormEditar($id_producto);
+     $categorias= $this->catModel->listarCategorias();
+     $this->view->mostrarFormEditar($id_producto, $categorias);
    }
-   public function editProd()
+   public function editDel()
    {
+     $id= $_POST['id_delantal'];
      $id_categoria = $_POST['categoria'] ;
      $talle = $_POST['talle'];
      $descripcion = $_POST['descripcion'];
      $imagen = $_POST['imagen'];
-    if(!empty($id_categoria) && !empty($talle)&& !empty($imagen)&& !empty($descripcion)){
-      $this->model->editarProducto($id_categoria,$talle,$descripcion,$imagen);
+    if(!empty($id_categoria) && !empty($talle)&& !empty($imagen)&& !empty($descripcion)&& !empty($id)){
+      echo "entre en el if de editDel";
+      $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $imagen);
       $this->mostrarPanelDelantal();
     }
     else{

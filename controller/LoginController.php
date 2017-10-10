@@ -13,6 +13,7 @@ class LoginController extends Controller
 
   public function login()
   {
+    echo "entre en el login";
     $this->view->mostrarLogin();
   }
 
@@ -25,12 +26,14 @@ class LoginController extends Controller
       if((!empty($usuario)) && (!empty($clave)) && (!empty($mail))){
        $data = $this->model->getUser($usuario);
         if((!empty($data)) && (password_verify($clave, $data[0]['clave']))){
-            $_SESSION['USER'] = $data;
+            session_start();
+            $_SESSION['USER'] = $usuario;
             $_SESSION['LAST_ACTIVITY'] = time();
-            header('Location: '.ADMIN);
+            $_SESSION['LOGGED'] = true;
+            header('Location: '.HOME);
         }
         else{
-            $this->view->mostrarLogin('Los datos ingresados son incorrectos');
+          $this->view->mostrarLogin('Password, Usuario o Mail incorrectos');
         }
       }
   }

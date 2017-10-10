@@ -2,9 +2,10 @@
   include_once('model/AdminCategoriaModel.php');
   include_once('view/AdminCategoriaView.php');
 
-  class AdminCategoriaController extends Controller
+  class AdminCategoriaController extends SecuredController
   {
   function __construct(){
+      parent::__construct();
       $this->view = new AdminCategoriaView();
       $this->model = new AdminCategoriaModel();
 

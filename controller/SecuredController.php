@@ -7,7 +7,8 @@ class SecuredController extends Controller
   {
     session_start();
     if(isset($_SESSION['USER'])){
-      if (time() - $_SESSION['LAST_ACTIVITY'] > 10) {
+      if (time() - $_SESSION['LAST_ACTIVITY'] > 100000) {
+        echo ($_SESSION['LAST_ACTIVITY']);
         header('Location: '.LOGOUT);
         die();
       }
@@ -18,6 +19,7 @@ class SecuredController extends Controller
       die();
     }
   }
+
 }
 
  ?>

@@ -1,7 +1,6 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-
-          <form action="autenticacion" method="post">
+          <form class="loginForm" action="autenticacion"  method="post">
             <div class="form-group">
               <label for="usuario">Usuario</label>
               <input type="text" class="form-control" id="usuario" name="usuario" placeholder="User" required>
