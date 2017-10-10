@@ -38,6 +38,15 @@ $(document).ready(function(){
       let id_producto= {id: data};
       $.post("borrarProducto",id_producto,adminMostrarAjax);
     }
+    function listarProductosCategoria(data){
+      let id_categoria={id: data};
+      $.post("delantalesCategoria",id_categoria,adminMostrarAjax);
+    }
+    function mostrarDetalle(data) {
+      console.log("entre en la funcion");
+      let id_delantal={id: data};
+      $.post("delantal",id_delantal,adminMostrarAjax);
+    }
     /*function autenticar(data) {
       console.log(data);
       $.post("autenticacion",data,adminMostrarAjax);
@@ -103,6 +112,17 @@ $(document).ready(function(){
                 let data = $(this).serialize();
                 editarProd(data);
               });
+            $(".productosCategoria").on("click", function(event){
+              event.preventDefault();
+              let data= $(this).data("id");
+              listarProductosCategoria(data);
+            })
+            $(".detalle").on("click", function(event){
+              console.log("entre en el binding");
+              event.preventDefault();
+              let data= $(this).data("id");
+              mostrarDetalle(data);
+            })
   }
   $(".navegacion").on("click", function (event) {
     event.preventDefault();

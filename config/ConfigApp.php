@@ -10,9 +10,9 @@ class ConfigApp
       'home'=> 'UserStaticController#home',
       'contacto' => 'UserStaticController#contacto',
       'delantales' => 'ProductoController#productos',
-      'delantal' => 'Producto#detalle',
+      'delantal' => 'ProductoController#productoDetalle',
       'categorias' => 'CategoriaController#categoria',
-      'delantalesCategoria' => 'Producto#productoPorCategoria',
+      'delantalesCategoria' => 'ProductoController#productoPorCategoria',
       //ADMIN ABM CAT
       'mostrarEditarCategoria' => 'AdminCategoriaController#showEditCat',
       'listarCategoria' => 'AdminCategoriaController#mostrarCategoria',

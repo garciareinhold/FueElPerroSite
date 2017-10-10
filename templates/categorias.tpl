@@ -8,6 +8,7 @@
           <ul>
             <li>{$categoria['nombre_categoria']}</li>
             <li>{$categoria['precio_categoria']}</li>
+            <li><button type="button" class="productosCategoria" data-id="{$categoria['id_categoria']}">Ver Productos</button></li>
           </ul>
         </figcaption>
       </figure>

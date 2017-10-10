@@ -8,6 +8,7 @@
           <ul>{$delantal['id_categoria']}
             <li>Talle disponible:{$delantal['talle_disponible']}</li>
             <li>Descripcion: {$delantal['descripcion']}</li>
+            <li><a href="#" class="detalle" data-id="{$delantal['id_delantal']}">Ver mas</a></li>
           </ul>
         </figcaption>
       </figure>
