@@ -47,11 +47,11 @@ $(document).ready(function(){
       let id_delantal={id: data};
       $.post("delantal",id_delantal,adminMostrarAjax);
     }
-    function autenticar(data) {
+    //function autenticar(data) {
       // console.log(data);
-      $.post("autenticacion",data,adminMostrarAjax);
+      //$.post("autenticacion",data,adminMostrarAjax);
       // console.log("entre en autenticar");
-    }
+    //}
 
 // Partial Render
   function adminMostrarAjax(result)
@@ -64,13 +64,13 @@ $(document).ready(function(){
           let data = $(this).data("id");
           mostrarEditarCat(data);
         });
-        $(".loginForm").on( "submit", function( event ) {
-          event.preventDefault();
+        //$(".loginForm").on( "submit", function( event ) {
+          //event.preventDefault();
           // console.log("entre en el binding");
-          let data = $(this).serialize();
+          //let data = $(this).serialize();
           // console.log(data);
-          autenticar(data);
-        });
+          //autenticar(data);
+        //});
         $( ".elegirCategoria" ).on( "click", function( event ) {
           event.preventDefault();
           let data = $(this).val();
