@@ -33,7 +33,7 @@ class LoginController extends Controller
             header('Location: '.HOME);
         }
         else{
-          $this->view->mostrarLogin('Password, Usuario o Mail incorrectos');
+          $this->view->indexError(false,'Password, Usuario o Mail incorrectos');
         }
       }
   }

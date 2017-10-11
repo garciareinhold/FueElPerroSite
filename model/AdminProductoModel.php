@@ -16,7 +16,7 @@ class AdminProductoModel extends Model
     $sentencia = $this->db->prepare( "delete from delantal where id_delantal=?");
     $sentencia->execute([$value]);
   }
-  public function editarProducto($id_delantal ,$talle, $descripcion, $imagen, $id_categoria)
+  public function editarProducto($id_delantal ,$talle, $descripcion, $id_categoria,$imagen)
   {
     $sentencia = $this->db->prepare('UPDATE delantal SET talle_disponible=?, descripcion=?, imagen=?, id_categoria=?  WHERE id_delantal=?');
     $sentencia->execute(array($talle, $descripcion, $imagen, $id_categoria, $id_delantal));
