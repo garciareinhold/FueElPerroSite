@@ -84,7 +84,7 @@ INSERT INTO `usuario` (`id_admin`, `usuario`, `clave`, `mail`) VALUES
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id_categoria`);
+ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `delantal`
@@ -127,4 +127,3 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `delantal`
   ADD CONSTRAINT `delantal_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
-

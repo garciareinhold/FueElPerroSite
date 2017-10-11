@@ -5,34 +5,34 @@ $(document).ready(function(){
     $.post("editarCategoria",data,adminMostrarAjax);
   }
   function mostrarEditarCat(data) {
-    console.log("entre en editar");
+    // console.log("entre en editar");
     let id_categoria= {id: data};
     $.post("mostrarEditarCategoria",id_categoria,adminMostrarAjax);
   }
 
   function agregarCat(data) {
-    console.log("entre en agregar");
+    // console.log("entre en agregar");
     $.post("agregarCategoria",data,adminMostrarAjax);
   }
 
   function borrarCat(data) {
-    console.log("entre en borrar");
+    // console.log("entre en borrar");
     let id_categoria= {id: data};
     $.post("borrarCategoria",id_categoria,adminMostrarAjax);
   }
   //ABM productos
     function editarProd(data) {
-      console.log(data);
+      // console.log(data);
       $.post("editarProducto",data,adminMostrarAjax);
     }
     function mostrarEditarProd(data) {
-      console.log("entre en mostrarEditarProd");
+      // console.log("entre en mostrarEditarProd");
       let id_delantal= {id: data};
       $.post("mostrarEditarProducto",id_delantal,adminMostrarAjax);
     }
 
     function agregarProducto(data) {
-      console.log("entre en la funcion");
+      // console.log("entre en la funcion");
       $.post("agregarProd",data,adminMostrarAjax);
     }
 
@@ -45,7 +45,7 @@ $(document).ready(function(){
       $.post("delantalesCategoria",id_categoria,adminMostrarAjax);
     }
     function mostrarDetalle(data) {
-      console.log("entre en la funcion");
+      // console.log("entre en la funcion");
       let id_delantal={id: data};
       $.post("delantal",id_delantal,adminMostrarAjax);
     }
@@ -59,8 +59,8 @@ $(document).ready(function(){
 // Partial Render
   function adminMostrarAjax(result)
     {
-      console.log("entre en el mostrarAjax");
-      console.log(result);
+      // console.log("entre en el mostrarAjax");
+      // console.log(result);
       $("#js-pRender").html(result);
         $( ".editarCat" ).on( "click", function( event ) {
           event.preventDefault();
@@ -74,11 +74,11 @@ $(document).ready(function(){
         //   console.log(data);
         //   autenticar(data);
         // });
-        $( ".elegirCategoria" ).on( "click", function( event ) {
-          event.preventDefault();
-          let data = $(this).val();
-          $("#categoria").val(data);
-        });
+        // $( ".elegirCategoria" ).on( "click", function( event ) {
+        //   event.preventDefault();
+        //   let data = $(this).val();
+        //   $("#categoria").val(data);
+        // });
         $( ".borrarCat" ).on( "click", function( event ) {
           event.preventDefault();
           let data = $(this).data("id");
@@ -107,7 +107,7 @@ $(document).ready(function(){
             $( "#agregarProd" ).on( "submit", function( event ) {
               event.preventDefault();
               let data = $(this).serialize();
-              console.log("entre en el binding");
+              // console.log("entre en el binding");
               agregarProducto(data);
             });
             $( ".editarDelantales" ).on( "submit", function( event ) {
@@ -121,7 +121,7 @@ $(document).ready(function(){
               listarProductosCategoria(data);
             })
             $(".detalle").on("click", function(event){
-              console.log("entre en el binding");
+              // console.log("entre en el binding");
               event.preventDefault();
               let data= $(this).data("id");
               mostrarDetalle(data);

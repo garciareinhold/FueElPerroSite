@@ -13,7 +13,6 @@ class LoginController extends Controller
 
   public function login()
   {
-    echo "entre en el login";
     $this->view->mostrarLogin();
   }
 
@@ -23,9 +22,10 @@ class LoginController extends Controller
       $clave = $_POST['password'];
       $mail = $_POST['mail'];
 
+
       if((!empty($usuario)) && (!empty($clave)) && (!empty($mail))){
        $data = $this->model->getUser($usuario);
-        if((!empty($data)) && (password_verify($clave, $data[0]['clave']))){
+        if((!empty($data)) && (password_verify($clave, $data[0]['clave'])) && ($mail==$data[0]['mail'])){
             session_start();
             $_SESSION['USER'] = $usuario;
             $_SESSION['LAST_ACTIVITY'] = time();
@@ -37,13 +37,14 @@ class LoginController extends Controller
         }
       }
   }
-
   public function cerrarSesion()
   {
     session_start();
     session_destroy();
     header("Location: ".HOME);
   }
+
+
 }
 
  ?>

@@ -20,6 +20,8 @@
       $this->view->mostrarProductos($this->obtenerNombres($productos_copia, $categorias));
     }
     private function obtenerNombres($productos_copia, $categorias)
+    //No lo hacemos en AdminProductoController, porque puede haber dos categorias con el mismo nombre.
+    //Y el admin podría estar interesado en el id de la categoria para diferenciarlos.
     {
       foreach ($productos_copia as  &$producto_copia) {
         $id_categoria=$producto_copia["id_categoria"];

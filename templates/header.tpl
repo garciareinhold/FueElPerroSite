@@ -15,10 +15,8 @@
           <img src="images/marca_pagina.jpg" alt="logo_pagina" id="logo_pagina">
         </figure>
       </header>
-      <nav class="navbar navbar-inverse">
         {if $session=="true"}
           {include file="Admin/navegacionAdmin.tpl"}
           {else}
             {include file="navegacionUsuario.tpl"}
         {/if}
-      </nav>

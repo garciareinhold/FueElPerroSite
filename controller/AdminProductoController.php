@@ -39,7 +39,6 @@
    }
    public function showEditProd()
    {
-     echo "entre en show edit  prod";
      $id_producto = $_POST['id'] ;
      var_dump($id_producto);
      $categorias= $this->catModel->listarCategorias();
@@ -55,10 +54,10 @@
      var_dump($id);
      var_dump($id_categoria);
      var_dump($talle);
+     var_dump($descripcion);
      var_dump($imagen);
 
     if(!empty($id_categoria) && !empty($talle)&& !empty($imagen)&& !empty($descripcion)&& !empty($id)){
-      echo "entre en el if de editDel en producto Controller";
       $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $imagen);
       $this->mostrarPanelDelantal();
     }

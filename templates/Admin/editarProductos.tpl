@@ -2,35 +2,30 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>Editar Producto</h1>
-      <div class="alert alert-danger" role="alert">Aca va el error</div>
       <form  class="editarDelantales"  method="post">
         <div class="form-group">
           <label for="talle">Id delantal a editar</label>
-          <input type="text" class="form-control" id="id" name="id_delantal"  value="{{$id_producto}}" placeholder="Talle Disponible">
+          <input type="text" class="form-control" id="id" name="id_delantal"  value="{{$id_producto}}" placeholder="Talle Disponible" readonly>
         </div>
         <div class="form-group">
           <label for="talle">Talle Disponible</label>
-          <input type="text" class="form-control" id="talle" name="talle"  value="" placeholder="Talle Disponible">
+          <input type="text" class="form-control" id="talle" name="talle"  value="" placeholder="Talle Disponible" required>
         </div>
         <div class="form-group">
           <label for="categoria">Categoria</label>
-          <input type="text" class="form-control" id="categoria" name="categoria"  value="" placeholder="Categoria del delantal">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Elige</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              {foreach from=$categorias item=categoria}
-              <p><button class="dropdown-item elegirCategoria" type="button" value="{$categoria['id_categoria']}">{$categoria['nombre_categoria']}</button></p>
-              {/foreach}
-            </div>
-          </div>
+          <select class="form-control" name="categoria">
+            {foreach from=$categorias item=categoria}
+              <option value="{$categoria['id_categoria']}" >{$categoria['nombre_categoria']}</option>
+            {/foreach}
+          </select>
         </div>
         <div class="form-group">
           <label for="descripcion">Descripcion</label>
-          <input type="text" name="descripcion" value=""placeholder="Descripcion del delantal">
+          <textarea name="descripcion" rows="8" cols="80" required></textarea>
         </div>
         <div class="form-group">
           <label for="url">Ruta imagen</label>
-          <input type="text" name="imagen" value="">
+          <input type="text" name="imagen" value="" required>
         </div>
         <button type="submit" class="btn btn-default">Actualizar</button>
       </form>
