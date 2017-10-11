@@ -26,7 +26,7 @@ public function buildDBfromFile($dbName){
       $this->_connection = new PDO('mysql:host=localhost;',"root","");
       $this->_connection->exec('CREATE DATABASE IF NOT EXISTS '.$dbName );
       $this->_connection->exec('USE '.$dbName);
-      $queries = $this->loadSQLSchema('fueelperro_db.sql');
+      $queries = $this->loadSQLSchema('./db/fueelperro_db.sql');
       $i=0;
       while($i<count($queries)&&strlen($this->_connection->errorInfo()[2] == 0)){
         $this->_connection->exec($queries[$i]);
