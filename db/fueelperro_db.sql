@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2017 a las 03:43:11
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 12-10-2017 a las 03:40:23
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,7 +33,9 @@ CREATE TABLE `categoria` (
 
 INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `precio_categoria`, `imagen`) VALUES
 (65, 'Larata', 2, 'images/delantal1.png'),
-(68, 'Dolores', 200000, 'images/delantal1.png');
+(68, 'Rustico', 4000, 'images/delantal1.png'),
+(69, 'Largo', 200, 'images/delantal1.png'),
+(70, 'Mandil', 4000, 'images/delantal1.png');
 
 -- --------------------------------------------------------
 
@@ -54,7 +56,12 @@ CREATE TABLE `delantal` (
 --
 
 INSERT INTO `delantal` (`id_delantal`, `talle_disponible`, `descripcion`, `id_categoria`, `imagen`) VALUES
-(3, 'S', 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', 65, 'images/delantal1.png');
+(3, 'XL', 'Un delantal muy practico para usos multiples', 65, 'images/delantal1.png'),
+(10, 'XXL', 'Un delantal practico para usos multiples', 68, 'images/delantal1.png'),
+(11, 'XS', 'Un delantal para usos multiples', 69, 'images/delantal1.png'),
+(12, 'XXXL', 'Un delantal con múltiples aplicaciones', 70, 'images/delantal1.png'),
+(13, 'S', 'Un delantal muy pequeño', 65, 'images/delantal1.png'),
+(14, 'L', 'Un delantal muy largo', 69, 'images/delantal1.png');
 
 -- --------------------------------------------------------
 
@@ -84,7 +91,7 @@ INSERT INTO `usuario` (`id_admin`, `usuario`, `clave`, `mail`) VALUES
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-ADD PRIMARY KEY (`id_categoria`);
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `delantal`
@@ -107,12 +114,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
 ALTER TABLE `delantal`
-  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

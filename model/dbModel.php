@@ -44,7 +44,9 @@ function loadSQLSchema($nombre){
   while (!feof($querys)) {
     $linea = fgets($querys);
     $linea = str_replace("'", '"', $linea);
-    if(!preg_match('/--/', $linea))   $sql .= $linea;
+    if(!preg_match('/--/', $linea)){
+       $sql .= $linea;
+     }
   }
   fclose($querys);
   $querys = explode(";", $sql);
