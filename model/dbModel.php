@@ -15,7 +15,7 @@ public static function getInstance(){
 
 function __construct(){
   try {
-    $this->_connection = new PDO('mysql:host=localhost',"root","");
+    $this->_connection = new PDO('mysql: host=localhost;port:'.$_SERVER["SERVER_PORT"],"root","");
   }
   catch (Exception $e) {
     echo "ERROR CREANDO LA BASE DE DATOS ".$e;
@@ -23,7 +23,7 @@ function __construct(){
 }
 public function buildDBfromFile($dbName){
   try {
-      $this->_connection = new PDO('mysql:host=localhost;',"root","");
+      $this->_connection = new PDO('mysql: host=localhost;port:'.$_SERVER["SERVER_PORT"],"root","");
       $this->_connection->exec('CREATE DATABASE IF NOT EXISTS '.$dbName );
       $this->_connection->exec('USE '.$dbName);
       $queries = $this->loadSQLSchema('./db/fueelperro_db.sql');
