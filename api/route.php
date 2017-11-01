@@ -13,6 +13,7 @@ $router = new Router();
 $router->AddRoute("Comentarios/:id","GET","ComentariosApi","getComentarios");
 $router->AddRoute("Comentario/:id","GET","ComentariosApi","getComentario");
 $router->AddRoute("Comentario/:id", "DELETE", "ComentariosApi", "deleteComentario");
+$router->AddRoute("Comentario/", "POST", "ComentariosApi", "createComentario");
 
 $route = $_GET['resource'];
 $array = $router->Route($route);

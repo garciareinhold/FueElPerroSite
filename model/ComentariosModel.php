@@ -18,6 +18,14 @@ class ComentariosModel extends Model
     $sentencia = $this->db->prepare( "delete from comentario where id_comentario=?");
     $sentencia->execute([$id]);
   }
+
+ public function guardarComentario($usuario, $contenido, $producto)
+  {
+    $sentencia = $this->db->prepare('INSERT INTO comentario(usuario,contenido,producto) VALUES(?,?,?)');
+    $sentencia->execute([$usuario,$contenido,$producto]);
+    $id = $this->db->lastInsertId();
+    return $this->getComentario($id);
+  }
 }
 
  ?>
