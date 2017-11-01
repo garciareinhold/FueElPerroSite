@@ -5,11 +5,13 @@ define('PARAMS', 1);
 
 include_once 'config/Router.php';
 include_once '../model/Model.php';
+include_once 'controller/ComentariosApiController.php';
 //controllers
 
 $router = new Router();
 //url, verb, controller, method
-$router->AddRoute();
+$router->AddRoute("Comentarios/:id","GET","ComentariosApi","getComentarios");
+
 $route = $_GET['resource'];
 $array = $router->Route($route);
 

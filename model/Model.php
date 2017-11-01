@@ -1,5 +1,5 @@
 <?php
-include_once 'model/dbModel.php';
+include_once 'dbModel.php';
 
 class Model
 {

@@ -3,18 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2017 a las 04:17:32
+-- Tiempo de generación: 01-11-2017 a las 03:58:11
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `fueelperro_db`
@@ -60,8 +55,8 @@ CREATE TABLE `comentario` (
 -- Volcado de datos para la tabla `comentario`
 --
 
-INSERT INTO `comentario` (`id_comentario`, `usuario`, `contenido`, `producto`) VALUES
-(3, '1', 'Hola soy el User 1/ admin y estoy comentando en el articulo numero 10', '10');
+INSERT INTO `comentario` (`id_comentario`, `usuario`, `contenido`, `producto`) VALUES 
+('1', 'Hola soy el User 1/ admin y estoy comentando en el articulo numero 10', '10');
 
 -- --------------------------------------------------------
 
@@ -85,8 +80,8 @@ INSERT INTO `delantal` (`id_delantal`, `talle_disponible`, `descripcion`, `id_ca
 (3, 'XL', 'Un delantal muy practico para usos multiples', 65, 'images/delantal1.png'),
 (10, 'XXL', 'Un delantal practico para usos multiples', 68, 'images/delantal1.png'),
 (11, 'XS', 'Un delantal para usos multiples', 69, 'images/delantal1.png'),
-(12, 'XXXL', 'Un delantal con mÃƒÆ’Ã‚Âºltiples aplicaciones', 70, 'images/delantal1.png'),
-(13, 'S', 'Un delantal muy pequeÃƒÆ’Ã‚Â±o', 65, 'images/delantal1.png'),
+(12, 'XXXL', 'Un delantal con mÃƒÂºltiples aplicaciones', 70, 'images/delantal1.png'),
+(13, 'S', 'Un delantal muy pequeÃƒÂ±o', 65, 'images/delantal1.png'),
 (14, 'L', 'Un delantal muy largo', 69, 'images/delantal1.png');
 
 -- --------------------------------------------------------
@@ -151,7 +146,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
@@ -171,7 +166,3 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `delantal`
   ADD CONSTRAINT `delantal_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
