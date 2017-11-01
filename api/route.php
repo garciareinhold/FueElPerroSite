@@ -11,6 +11,8 @@ include_once 'controller/ComentariosApiController.php';
 $router = new Router();
 //url, verb, controller, method
 $router->AddRoute("Comentarios/:id","GET","ComentariosApi","getComentarios");
+$router->AddRoute("Comentario/:id","GET","ComentariosApi","getComentario");
+$router->AddRoute("Comentario/:id", "DELETE", "ComentariosApi", "deleteComentario");
 
 $route = $_GET['resource'];
 $array = $router->Route($route);
