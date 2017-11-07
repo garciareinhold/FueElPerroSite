@@ -1,7 +1,7 @@
 <?php
-  include_once('model/AdminProductoModel.php');
+  include_once('model/ProductoModel.php');
   include_once('view/AdminProductoView.php');
-  include_once('model/AdminCategoriaModel.php');
+  include_once('model/CategoriaModel.php');
 
 
   class AdminProductoController extends SecuredController
@@ -9,8 +9,8 @@
   function __construct(){
       parent::__construct();
       $this->view = new AdminProductoView();
-      $this->model = new AdminProductoModel();
-      $this->catModel = new AdminCategoriaModel();
+      $this->model = new ProductoModel();
+      $this->catModel = new CategoriaModel();
 
 }
     public function index(){
@@ -18,8 +18,8 @@
     }
 
    public function mostrarPanelDelantal(){
-     $productos = $this->model->listarProductos();
-     $categorias= $this->catModel->listarCategorias();
+     $productos = $this->model->getProductos();
+     $categorias= $this->catModel->getCategorias();
      $this->view->mostrarProductos($productos, $categorias);
    }
    public function createDel()
@@ -40,7 +40,7 @@
    public function showEditProd()
    {
      $id_producto = $_POST['id'] ;
-     $categorias= $this->catModel->listarCategorias();
+     $categorias= $this->catModel->getCategorias();
      $this->view->mostrarFormEditar($id_producto, $categorias);
    }
    public function editDel()

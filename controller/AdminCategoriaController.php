@@ -1,5 +1,5 @@
 <?php
-  include_once('model/AdminCategoriaModel.php');
+  include_once('model/CategoriaModel.php');
   include_once('view/AdminCategoriaView.php');
 
   class AdminCategoriaController extends SecuredController
@@ -7,7 +7,7 @@
   function __construct(){
       parent::__construct();
       $this->view = new AdminCategoriaView();
-      $this->model = new AdminCategoriaModel();
+      $this->model = new CategoriaModel();
 
 }
     public function index(){
@@ -15,7 +15,7 @@
     }
 
    public function mostrarCategoria(){
-     $categorias = $this->model->listarCategorias();
+     $categorias = $this->model->getCategorias();
      $this->view->mostrarCategorias($categorias);
    }
    public function createCat()

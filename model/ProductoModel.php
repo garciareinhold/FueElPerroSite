@@ -18,5 +18,20 @@ class ProductoModel extends Model
     $sentencia->execute([$id_delantal]);
     return $sentencia->fetch();
   }
+  public function guardarProducto($talle, $categoria, $descripcion,$imagen)
+  {
+    $sentencia = $this->db->prepare('INSERT INTO delantal(talle_disponible,descripcion,id_categoria,imagen) VALUES(?,?,?,?)');
+    $sentencia->execute([$talle, $descripcion,$categoria, $imagen]);
+  }
+  public function borrarProducto($value)
+  {
+    $sentencia = $this->db->prepare( "delete from delantal where id_delantal=?");
+    $sentencia->execute([$value]);
+  }
+  public function editarProducto($id_delantal ,$talle, $descripcion, $id_categoria,$imagen)
+  {
+    $sentencia = $this->db->prepare('UPDATE delantal SET talle_disponible=?, descripcion=?, imagen=?, id_categoria=?  WHERE id_delantal=?');
+    $sentencia->execute(array($talle, $descripcion, $imagen, $id_categoria, $id_delantal));
+  }
 }
  ?>
