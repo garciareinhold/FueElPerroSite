@@ -16,7 +16,8 @@ class ComentariosApi extends Api
 
   public function getComentarios($url_params = [])
   {
-    $Comentarios = $this->model->getComentarios($url_params[':id']);
+    $id_delantal= $url_params[":id"];
+    $Comentarios = $this->model->getComentarios($id_delantal);
     return $this->json_response($Comentarios, 200);
   }
 

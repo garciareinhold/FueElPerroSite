@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2017 a las 04:17:32
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.23
+-- Tiempo de generación: 09-11-2017 a las 01:51:25
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,9 +39,8 @@ CREATE TABLE `categoria` (
 
 INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `precio_categoria`, `imagen`) VALUES
 (65, 'Larata', 2, 'images/delantal1.png'),
-(68, 'Rustico', 4000, 'images/delantal1.png'),
 (69, 'Largo', 200, 'images/delantal1.png'),
-(70, 'Mandil', 4000, 'images/delantal1.png');
+(70, 'Mandril', 200, 'images/delantal1.png');
 
 -- --------------------------------------------------------
 
@@ -51,17 +50,21 @@ INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `precio_categoria`,
 
 CREATE TABLE `comentario` (
   `id_comentario` int(11) NOT NULL,
-  `usuario` varchar(50) NOT NULL,
-  `contenido` text NOT NULL,
-  `producto` varchar(50) NOT NULL
+  `puntaje` tinyint(50) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `descripcion` varchar(200) NOT NULL,
+  `id_delantal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comentario`
 --
 
-INSERT INTO `comentario` (`id_comentario`, `usuario`, `contenido`, `producto`) VALUES
-(3, '1', 'Hola soy el User 1/ admin y estoy comentando en el articulo numero 10', '10');
+INSERT INTO `comentario` (`id_comentario`, `puntaje`, `usuario`, `descripcion`, `id_delantal`) VALUES
+(1, 5, 'pepe', 'DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,', 3),
+(2, 4, 'Jose', 'DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,', 3),
+(3, 3, 'josele', 'on2,Dcripñññññññññññññññññ', 12),
+(4, 2, 'fffff', 'vvvvvvvvhhhhhhhhhhhhh', 11);
 
 -- --------------------------------------------------------
 
@@ -83,11 +86,8 @@ CREATE TABLE `delantal` (
 
 INSERT INTO `delantal` (`id_delantal`, `talle_disponible`, `descripcion`, `id_categoria`, `imagen`) VALUES
 (3, 'XL', 'Un delantal muy practico para usos multiples', 65, 'images/delantal1.png'),
-(10, 'XXL', 'Un delantal practico para usos multiples', 68, 'images/delantal1.png'),
-(11, 'XS', 'Un delantal para usos multiples', 69, 'images/delantal1.png'),
-(12, 'XXXL', 'Un delantal con mÃƒÆ’Ã‚Âºltiples aplicaciones', 70, 'images/delantal1.png'),
-(13, 'S', 'Un delantal muy pequeÃƒÆ’Ã‚Â±o', 65, 'images/delantal1.png'),
-(14, 'L', 'Un delantal muy largo', 69, 'images/delantal1.png');
+(11, 'tt', 'Ricota', 65, 'images/delantal1.png'),
+(12, 'XXXL', 'Un delantal con mÃºltiples aplicaciones', 70, 'images/delantal1.png');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,8 @@ ALTER TABLE `categoria`
 -- Indices de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  ADD PRIMARY KEY (`id_comentario`);
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_delantal` (`id_delantal`);
 
 --
 -- Indices de la tabla `delantal`
@@ -151,12 +152,12 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
 ALTER TABLE `delantal`
-  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
@@ -165,6 +166,12 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_delantal`) REFERENCES `delantal` (`id_delantal`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `delantal`
