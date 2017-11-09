@@ -6,14 +6,13 @@ define('PARAMS', 1);
 include_once 'config/Router.php';
 include_once '../model/Model.php';
 include_once 'controller/ComentariosApiController.php';
-//controllers
 
 $router = new Router();
-//url, verb, controller, method
+
 $router->AddRoute("comentarios/:id","GET","ComentariosApi","getComentarios");
 $router->AddRoute("comentario/:id","GET","ComentariosApi","getComentario");
 $router->AddRoute("comentario/:id", "DELETE", "ComentariosApi", "deleteComentario");
-$router->AddRoute("comentario/:id", "POST", "ComentariosApi", "createComentario");
+$router->AddRoute("comentario", "POST", "ComentariosApi", "createComentario");
 
 $route = $_GET['resource'];
 $array = $router->Route($route);

@@ -9,5 +9,9 @@
           </ul>
         </figcaption>
       </figure>
+      <div id="comentarios">
+        <p>hola</p>
+      </div>
+      {include file="formComentarios.tpl"}
   </section>
 </article>

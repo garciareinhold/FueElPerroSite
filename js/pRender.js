@@ -1,5 +1,56 @@
 $(document).ready(function(){
 
+//Rest
+let templateComentarios;
+$.ajax({ url: 'js/templates/comentarios.mst'}).done( template => templateComentarios = template);
+
+function loadComments(idDelantal) {
+      $.ajax("api/comentarios/"+idDelantal)
+          .done(function(comentarios) {
+            let rendered = Mustache.render(templateComentarios , comentarios);
+            console.log(rendered);
+            $('#comentarios').append(rendered);
+          })
+          .fail(function() {
+              $('#comentarios').append('<p>No se puedieron cargar los comentarios del producto</p>');
+          });
+  }
+
+function createComment(idDelantal) {
+    let comentario ={
+      "usuario": $('#usuario').val(),
+      "descripcion": $('#descripcion').val(),
+      "id_delantal":idDelantal,
+    };
+
+    $.ajax({
+          method: "POST",
+          url: "api/comentario/",
+          data: JSON.stringify(tarea)
+        })
+      .done(function(data) {
+        let rendered = Mustache.render(templateTarea , data);
+        $('#listaTareas').append(rendered);
+      })
+      .fail(function(data) {
+          console.log(data);
+          alert('Imposible crear la tarea');
+      });
+  }
+
+  function borrarTarea(idTarea) {
+    $.ajax({
+          method: "DELETE",
+          url: "api/tareas/" + idTarea
+        })
+      .done(function() {
+         $('#tarea'+idTarea).remove();
+      })
+      .fail(function() {
+          alert('Imposible borrar la tarea');
+      });
+  }
+
 //ABM categorias
   function editarCat(data) {
     $.post("editarCategoria",data,adminMostrarAjax);
@@ -37,6 +88,7 @@ $(document).ready(function(){
   function mostrarDetalle(data) {
     let id_delantal={id: data};
     $.post("delantal",id_delantal,adminMostrarAjax);
+    loadComments(data);
   }
 
 // Function para mostar Contenido de ajax y bindear funciones

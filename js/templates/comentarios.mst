@@ -1,0 +1,16 @@
+{{#comentarios}}
+  <section class="comentarioProducto">
+    <div class="form-group">
+      <label for="nombre">Usuario</label>
+      <div>{{usuario}}</div>
+    </div>
+    <div class="form-group">
+      <label for="comentario">Comentó:</label>
+      <div>{{descripcion}}</div>
+    </div>
+    <div class="form-group">
+      <label for="puntaje">Puntuación</label>
+      <div>{{puntaje}}</div>
+    </div>
+  </section>
+{{/comentarios}}

@@ -17,14 +17,20 @@ class ComentariosApi extends Api
   public function getComentarios($url_params = [])
   {
     $id_delantal= $url_params[":id"];
-    $Comentarios = $this->model->getComentarios($id_delantal);
-    return $this->json_response($Comentarios, 200);
+    $comentarios = $this->model->getComentarios($id_delantal);
+    $response= new stdClass();
+    $response->comentarios=$comentarios;
+    $response->status=200;
+    return $this->json_response($response, 200);
   }
 
   public function getComentario($url_params = [])
   {
-    $Comentarios = $this->model->getComentario($url_params[':id']);
-    return $this->json_response($Comentarios, 200);
+    $comentario = $this->model->getComentario($url_params[':id']);
+    $response= new stdClass();
+    $response->comentario= $comentario;
+    $response->status=200;
+    return $this->json_response($response, 200);
   }
 
   public function deleteComentario($url_params = [])
@@ -42,10 +48,14 @@ class ComentariosApi extends Api
   public function createComentario($url_params = []) {
     $body = json_decode($this->raw_data);
     $usuario = $body->usuario;
-    $contenido = $body->contenido;
-    $producto = $body->producto;
-    $comentario = $this->model->guardarComentario($usuario, $contenido, $producto);
-    return $this->json_response($comentario, 200);
+    $descripcion = $body->descripcion;
+    $puntaje = $body->puntaje;
+    $id_delantal = $body->id_delantal;
+    $comentario = $this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
+    $reponse= new stdClass();
+    $response->comentario=$comentario;
+    $response->status=200;
+    return $this->json_response($response, 200);
   }
 
 }

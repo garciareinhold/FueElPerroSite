@@ -13,18 +13,18 @@ class ComentariosModel extends Model
     $sentencia->execute([$id_comentario]);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  public function deleteComentario($id)
+  public function deleteComentario($id_comentario)
   {
     $sentencia = $this->db->prepare( "delete from comentario where id_comentario=?");
-    $sentencia->execute([$id]);
+    $sentencia->execute([$id_comentario]);
   }
 
- public function guardarComentario($usuario, $contenido, $producto)
+ public function guardarComentario($usuario, $descripcion, $puntaje, $id_delantal)
   {
-    $sentencia = $this->db->prepare('INSERT INTO comentario(usuario,contenido,producto) VALUES(?,?,?)');
-    $sentencia->execute([$usuario,$contenido,$producto]);
-    $id = $this->db->lastInsertId();
-    return $this->getComentario($id);
+    $sentencia = $this->db->prepare('INSERT INTO comentario(usuario,descripcion,puntaje,id_delantal) VALUES(?,?,?,?)');
+    $sentencia->execute([$usuario,$descripcion,$puntaje,$id_delantal]);
+    $id_comentario = $this->db->lastInsertId();
+    return $this->getComentario($id_comentario);
   }
 }
 
