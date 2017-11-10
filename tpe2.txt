@@ -1,0 +1,15 @@
+resta por hacer: 
+
+	imagenes:
+		USER:
+			mostrar Imagenes en user
+				editar template de productos
+				editar template de delantales
+		ADMIN:
+			mostrar Imagenes en editar
+				editar template de edicion, partial render para borrar e ir viendo cuales hay
+				editar template de edicion, en el form.
+				javascript bindear función de borrar comentario.
+					binding de delete_img : en load de editar, y en load de partial render img
+					
+	
