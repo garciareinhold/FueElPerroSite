@@ -17,6 +17,16 @@
     //   $this->view->mostrarIndex();
     // }
 
+    public function borrarImagenes()
+    {
+        $id_imagen= $_POST['id_image'];
+        $id_producto=$_POST['id_product'];
+        $this->model->borrarImagen($id_imagen);
+        $producto= $this->model->getProducto($id_producto);
+        $this->view->mostrarImagenesProducto($producto);
+
+    }
+
    public function mostrarPanelDelantal(){
      $productos = $this->model->getProductos();
      $categorias= $this->catModel->getCategorias();

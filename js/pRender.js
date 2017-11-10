@@ -55,6 +55,7 @@ $(document).ready(function(){
           alert('Imposible borrar el comentario');
       });
   }
+  //function delete va a tener que llamar a mostrar imagenes
 
 //ABM categorias
   function editarCat(data) {
@@ -78,6 +79,7 @@ $(document).ready(function(){
   function mostrarEditarProd(data) {
     let id_delantal= {id: data};
     $.post("mostrarEditarProducto",id_delantal,adminMostrarAjax);
+    //binding delete
     setTimeout(function(){loadComments(data);}, 650);
     clearInterval(interval);
     interval = setInterval(function(){loadComments(data);},2000);
@@ -97,10 +99,36 @@ $(document).ready(function(){
     clearInterval(interval);
     interval = setInterval(function(){loadComments(data);},2000);
   }
+  function deleteImage(id_imagen,id_producto) {
+    console.log("entre en delete image");
+    let productoImagen={id_image: id_imagen, id_product: id_producto};
+    console.log(productoImagen);
+    $.post("deleteImages",productoImagen, function(data){
+      console.log(data);
+      $("#contenedorImagenes").html(data);
+      $(".borrarImagen").on("click", function(event){
+        event.preventDefault();
+        let id_imagen= $(this).data("id");
+        let id_producto= $(this).data("producto");
+
+        deleteImage(id_imagen,id_producto);
+      })
+    })//insertar en el contenedor lo traido y bindear de vuelta);
+  }
 
 // Function para mostar Contenido de ajax y bindear funciones
   function adminMostrarAjax(result) {
       $("#js-pRender").html(result);
+
+      $(".borrarImagen").on("click", function(event){
+        console.log("entre en borrar imagen");
+        event.preventDefault();
+        let id_imagen= $(this).data("id");
+        let id_producto= $(this).data("producto");
+        console.log(id_imagen);
+        console.log(id_producto);
+        deleteImage(id_imagen,id_producto);
+      })
 
       $("#agregarComentario").on("click", function(event){
         event.preventDefault();

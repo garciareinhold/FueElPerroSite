@@ -16,6 +16,11 @@ class AdminProductoView extends View
 
     $this->smarty->display('templates/Admin/editarProductos.tpl');
   }
+  public function mostrarImagenesProducto($producto)
+  {
+    $this->smarty->assign('producto', $producto);
+    $this->smarty->display('templates/Admin/imagenesProducto.tpl');
+  }
 
 }
 
