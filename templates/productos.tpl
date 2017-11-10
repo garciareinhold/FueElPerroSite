@@ -1,5 +1,8 @@
 <article class="container-fluid" >
   <section class="row container-fluid">
+    {if empty($delantales)}
+      <p class="bg-danger">Lo sentimos, no hay productos para mostrar ahora :( </p>
+    {/if}
     {foreach from=$delantales item=delantal}
     <section class="col-md-4  col-xs-12">
       <figure>
@@ -13,6 +16,6 @@
         </figcaption>
       </figure>
     </section>
-      {/foreach}
+    {/foreach}
   </section>
 </article>
