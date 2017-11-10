@@ -2,7 +2,7 @@
   <section class="row container-fluid">
       <figure>
         {foreach from=$producto['imagenes'] item=imagen}
-          <img src="{$imagen['ruta']}" alt="Imagen del producto {$producto['id_delantal']}">
+          <img src="images/{$imagen['locacion']}" alt="Imagen del producto {$producto['id_delantal']}">
         {/foreach}
         <figcaption>
           <ul>{$producto['id_categoria']}

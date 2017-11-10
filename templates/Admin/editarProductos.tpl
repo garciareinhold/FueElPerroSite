@@ -3,14 +3,16 @@
     <div class="col-md-6 col-md-offset-3">
       <h1>Editar Producto</h1>
       <span hidden="hidden" id="spanInvisible" data-id="true"></span>
-      {foreach from=$producto['imagenes'] item=imagen}
-      <figure>
-        <img src="{$imagen['ruta']}" alt="Imagen del producto {$producto['id_delantal']}">
-        <figcaption>
-          <button type="button" id="{$imagen['id_imagen']}"></button>
-        </figcaption>
-      </figure>
-      {/foreach}
+      <div id="contenedorImagenes">
+        {foreach from=$producto['imagenes'] item=imagen}
+        <figure>
+          <img src="images/{$imagen['locacion']}" alt="Imagen del producto {$producto['id_delantal']}">
+          <figcaption>
+            <button type="button" id="{$imagen['id_imagen']}">Delete</button>
+          </figcaption>
+        </figure>
+        {/foreach}
+      </div>
       <form  class="editarDelantales"  method="post">
         <div class="form-group">
           <label for="talle">Id delantal a editar</label>

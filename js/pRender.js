@@ -17,7 +17,6 @@ $(document).ready(function(){
                 $('#comentarios').html('<p>No se pudieron cargar los comentarios del producto</p>');
             });
   }
-
   function createComment(idDelantal) {
       console.log("entre en create comment");
       let comentario ={

@@ -64,7 +64,7 @@
         $this->mostrarPanelDelantal();
       }
       else {
-        $this->view->errorCrear("Las imagenes tienen que ser JPG.");
+        $this->view->errorCrear("Las imagenes tienen que ser PNG.");
       }
     }
     else{
@@ -79,7 +79,7 @@
    }
    private function aceptaFormato($imagenesTipos){
        foreach ($imagenesTipos as $tipo) {
-         if($tipo != 'image/jpeg') {
+         if($tipo != 'image/png') {
            return false;
          }
        }
