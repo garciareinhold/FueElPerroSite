@@ -33,11 +33,11 @@ $(document).ready(function(){
             dataType: "json"
           })
         .done(function(data) {
-          alert('Fue posible crear el comentario');
           let rendered = Mustache.render(templateComentarios , data);
           $('#comentarios').before(rendered);
         })
         .fail(function(data) {
+            alert("Imposible crear el comentario");
             console.log(data);
         })
   }

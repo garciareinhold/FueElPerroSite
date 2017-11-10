@@ -54,14 +54,17 @@ class ComentariosApi extends Api
       return $this->json_response(false, 404);
   }
   public function createComentario($url_params = []) {
+
     $body = json_decode($this->raw_data);
     $usuario = $body->usuario;
     $descripcion = $body->descripcion;
     $puntaje = $body->puntaje;
     $id_delantal = $body->id_delantal;
+
     $comentario = $this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
-    $reponse= new stdClass();
-    $response->comentario=$comentario;
+
+    $response= new stdClass();
+    $response->comentario=[$comentario];
     $response->status=200;
     return $this->json_response($response, 200);
   }
