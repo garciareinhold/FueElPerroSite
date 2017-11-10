@@ -8,11 +8,9 @@ $(document).ready(function(){
   function loadComments(idDelantal) {
         $.ajax("api/comentarios/"+idDelantal)
             .done(function(data) {
-              let comments = {
-                admin = true,
-                comentarios: data
-              };
-              let rendered = Mustache.render(templateComentarios , comments);
+              //aca sacar el valor de un hidden puesto en el template de editarProductos
+              data.admin=$("#spanInvisible").data("id");
+              let rendered = Mustache.render(templateComentarios , data);
               $('#comentarios').html(rendered);
             })
             .fail(function() {

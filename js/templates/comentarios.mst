@@ -19,8 +19,9 @@
         {{puntaje}}
       </div>
     </div><!-- /panel panel-default -->
+    {{#admin}}
+    <button type="button" name="button">Boton borrar</button>
+    {{/admin}}
   </div><!-- /col-sm-5 -->
-    <div class="col-sm-6">
-    </div>
 </div>
 {{/comentarios}}

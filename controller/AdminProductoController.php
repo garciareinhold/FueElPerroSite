@@ -27,16 +27,22 @@
      $talle = $_POST['talle'];
      $categoria = $_POST['categoria'];
      $descripcion=$_POST['descripcion'];
-     $imagenes=$_POST['imagenes'];
+     $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
     if(!empty($talle) && !empty($categoria)&& !empty($descripcion)){
-      $this->model->guardarProducto($talle, $categoria, $descripcion,$imagenes);
-      $this->mostrarPanelDelantal();
+      if ($this->aceptaFormato($_FILES['imagenes']['type'])) {
+        $this->model->guardarProducto($talle, $categoria, $descripcion,$rutaTempImagenes);
+        $this->mostrarPanelDelantal();
+      }
+      else {
+        $this->view->errorCrear("Las imagenes tienen que ser JPG.");
+      }
     }
     else{
       $this->view->errorCrear();
     }
    }
+
    public function showEditProd()
    {
      $id_producto = $_POST['id'] ;
@@ -50,11 +56,16 @@
      $id_categoria = $_POST['categoria'] ;
      $talle = $_POST['talle'];
      $descripcion = $_POST['descripcion'];
-     $imagenes= $_POST['imagenes'];
+     $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
     if(!empty($id_categoria) && !empty($talle)&& !empty($descripcion)&& !empty($id)){
-      $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $imagenes);
-      $this->mostrarPanelDelantal();
+      if ($this->aceptaFormato($_FILES['imagenes']['type'])) {
+        $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $rutaTempImagenes);
+        $this->mostrarPanelDelantal();
+      }
+      else {
+        $this->view->errorCrear("Las imagenes tienen que ser JPG.");
+      }
     }
     else{
       $this->view->errorCrear();
