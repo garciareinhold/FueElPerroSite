@@ -2,7 +2,7 @@
 class CategoriaModel extends Model
 {
   function getCategorias(){
-    $sentencia = $this->db->prepare( "select * from categoria");
+    $sentencia = $this->db->prepare( "select * from categoria  order by nombre_categoria");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

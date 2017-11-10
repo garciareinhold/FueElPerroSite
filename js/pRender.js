@@ -77,6 +77,9 @@ $(document).ready(function(){
   function mostrarEditarProd(data) {
     let id_delantal= {id: data};
     $.post("mostrarEditarProducto",id_delantal,adminMostrarAjax);
+    setTimeout(function(){loadComments(data);}, 650);
+    clearInterval(interval);
+    interval = setInterval(function(){loadComments(data);},2000);
   }
   function agregarProducto(data) {
     $.post("agregarProd",data,adminMostrarAjax);

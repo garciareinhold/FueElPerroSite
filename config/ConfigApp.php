@@ -21,7 +21,7 @@ class ConfigApp
       'editarCategoria' => 'AdminCategoriaController#editCat',
       //ADMIN ABM ITEM
       'mostrarEditarProducto' => 'AdminProductoController#showEditProd',
-      'getProducto' => 'AdminProductoController#mostrarPanelDelantal',
+      'getProductos' => 'AdminProductoController#mostrarPanelDelantal',
       'agregarProd'=> 'AdminProductoController#createDel',
       'borrarProducto'=> 'AdminProductoController#deleteDel',
       'editarProducto' => 'AdminProductoController#editDel',

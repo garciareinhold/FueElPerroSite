@@ -56,7 +56,5 @@
       }
       $this->view->mostrarProducto($delantal_copia);
     }
-
-
 }
  ?>

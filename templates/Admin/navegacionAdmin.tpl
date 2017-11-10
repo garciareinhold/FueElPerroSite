@@ -10,7 +10,7 @@
             </section>
             <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a  href="#" class="anchor-nav navegacion" id="getProducto">Delantales</a></li>
+                <li><a  href="#" class="anchor-nav navegacion" id="getProductos">Delantales</a></li>
                 <li><a href="#" class="anchor-nav navegacion" id="listarCategoria">Categoria</a></li>
                 <li><a href="logout">Logout</a></li>
               </ul>

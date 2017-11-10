@@ -13,9 +13,9 @@
       $this->catModel = new CategoriaModel();
 
 }
-    public function index(){
-      $this->view->mostrarIndex();
-    }
+    // public function index(){
+    //   $this->view->mostrarIndex();
+    // }
 
    public function mostrarPanelDelantal(){
      $productos = $this->model->getProductos();
@@ -27,9 +27,8 @@
      $talle = $_POST['talle'];
      $categoria = $_POST['categoria'];
      $descripcion=$_POST['descripcion'];
-     $imagen = $_POST['imagen'];
 
-    if(!empty($talle) && !empty($categoria)&& !empty($descripcion)&& !empty($imagen)){
+    if(!empty($talle) && !empty($categoria)&& !empty($descripcion)){
       $this->model->guardarProducto($talle, $categoria, $descripcion,$imagen);
       $this->mostrarPanelDelantal();
     }
@@ -49,10 +48,9 @@
      $id_categoria = $_POST['categoria'] ;
      $talle = $_POST['talle'];
      $descripcion = $_POST['descripcion'];
-     $imagen = $_POST['imagen'];
 
-    if(!empty($id_categoria) && !empty($talle)&& !empty($imagen)&& !empty($descripcion)&& !empty($id)){
-      $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $imagen);
+    if(!empty($id_categoria) && !empty($talle)&& !empty($descripcion)&& !empty($id)){
+      $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $imagenes);
       $this->mostrarPanelDelantal();
     }
     else{
@@ -65,5 +63,14 @@
        $this->model->borrarProducto($id_producto);
        $this->mostrarPanelDelantal();
    }
+   private function aceptaFormato($imagenesTipos){
+       foreach ($imagenesTipos as $tipo) {
+         if($tipo != 'image/jpeg') {
+           return false;
+         }
+       }
+       return true;
+   }
+
 }
  ?>

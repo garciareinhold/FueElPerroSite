@@ -29,6 +29,8 @@
         </div>
         <button type="submit" class="btn btn-default">Actualizar</button>
       </form>
+      <h2>Editar Comentarios</h2>
+      {include file="comentarios.tpl"}
     </div>
   </div>
 </section>
