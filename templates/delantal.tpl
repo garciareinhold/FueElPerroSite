@@ -1,7 +1,9 @@
 <article class="container-fluid" >
   <section class="row container-fluid">
       <figure>
-        <img src="{$producto['imagen']}" class="img-circle imagenes-disenio" alt="Modelo 1">
+        {foreach from=$producto['imagenes'] item=imagen}
+          <img src="{$imagen['ruta']}" alt="Imagen del producto {$producto['id_delantal']}">
+        {/foreach}
         <figcaption>
           <ul>{$producto['id_categoria']}
             <li>Talle disponible:{$producto['talle_disponible']}</li>

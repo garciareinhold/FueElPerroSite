@@ -7,8 +7,12 @@ $(document).ready(function(){
 
   function loadComments(idDelantal) {
         $.ajax("api/comentarios/"+idDelantal)
-            .done(function(comentarios) {
-              let rendered = Mustache.render(templateComentarios , comentarios);
+            .done(function(data) {
+              let comments = {
+                admin = true,
+                comentarios: data
+              };
+              let rendered = Mustache.render(templateComentarios , comments);
               $('#comentarios').html(rendered);
             })
             .fail(function() {
@@ -81,9 +85,6 @@ $(document).ready(function(){
     clearInterval(interval);
     interval = setInterval(function(){loadComments(data);},2000);
   }
-  function agregarProducto(data) {
-    $.post("agregarProd",data,adminMostrarAjax);
-  }
   function borrarProd(data) {
     let id_producto= {id: data};
     $.post("borrarProducto",id_producto,adminMostrarAjax);
@@ -141,15 +142,35 @@ $(document).ready(function(){
         let data = $(this).data("id");
         borrarProd(data);
       });
-      $( "#agregarProd" ).on( "submit", function( event ) {
+      $("#imagenesProducto").on("submit", function(event){
         event.preventDefault();
-        let data = $(this).serialize();
-        agregarProducto(data);
+        let form_data= new FormData(this);
+        $.ajax({
+          url: "agregarProd",
+          contentType:false,
+          processData:false,
+          data: form_data,
+          type:"post",
+          success: function(data){
+            adminMostrarAjax(data);
+          }
+        });
+        return false;
       });
       $( ".editarDelantales" ).on( "submit", function( event ) {
-          event.preventDefault();
-          let data = $(this).serialize();
-          editarProd(data);
+        event.preventDefault();
+        let form_data= new FormData(this);
+        $.ajax({
+          url: "editarProducto",
+          contentType:false,
+          processData:false,
+          data: form_data,
+          type:"post",
+          success: function(data){
+            adminMostrarAjax(data);
+          }
+        });
+        return false;
       });
       $(".productosCategoria").on("click", function(event){
         event.preventDefault();

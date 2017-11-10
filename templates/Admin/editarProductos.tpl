@@ -2,6 +2,14 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>Editar Producto</h1>
+      {foreach from=$producto['imagenes'] item=imagen}
+      <figure>
+        <img src="{$imagen['ruta']}" alt="Imagen del producto {$producto['id_delantal']}">
+        <figcaption>
+          <button type="button" id="{$imagen['id_imagen']}"></button>
+        </figcaption>
+      </figure>
+      {/foreach}
       <form  class="editarDelantales"  method="post">
         <div class="form-group">
           <label for="talle">Id delantal a editar</label>

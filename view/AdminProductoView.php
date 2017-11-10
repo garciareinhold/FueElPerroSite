@@ -8,8 +8,9 @@ class AdminProductoView extends View
     $this->smarty->assign('categorias', $categorias);
     $this->smarty->display('templates/Admin/panelProductos.tpl');
   }
-  public function mostrarFormEditar($id_producto, $categorias)
+  public function mostrarFormEditar($producto, $id_producto, $categorias)
   {
+    $this->smarty->assign('producto', $producto);
     $this->smarty->assign('id_producto', $id_producto);
     $this->smarty->assign('categorias', $categorias);
 

@@ -23,8 +23,8 @@
           <textarea class="form-control" name="descripcion" rows="8" cols="80" required></textarea>
         </div>
         <div class="form-group">
-          <label for="url">Ruta imagen</label>
-          <input class="form-control" type="text" name="imagen" value="" required>
+          <label for="imagen">Imagen</label>
+          <input type="file" id="imagenesProducto" name="imagenes[]" multiple>
         </div>
         <button type="submit" class="btn btn-default">Crear</button>
       </form>

@@ -27,9 +27,10 @@
      $talle = $_POST['talle'];
      $categoria = $_POST['categoria'];
      $descripcion=$_POST['descripcion'];
+     $imagenes=$_POST['imagenes'];
 
     if(!empty($talle) && !empty($categoria)&& !empty($descripcion)){
-      $this->model->guardarProducto($talle, $categoria, $descripcion,$imagen);
+      $this->model->guardarProducto($talle, $categoria, $descripcion,$imagenes);
       $this->mostrarPanelDelantal();
     }
     else{
@@ -40,7 +41,8 @@
    {
      $id_producto = $_POST['id'] ;
      $categorias= $this->catModel->getCategorias();
-     $this->view->mostrarFormEditar($id_producto, $categorias);
+     $producto=$this->model->getProducto($id_producto);
+     $this->view->mostrarFormEditar($producto, $id_producto, $categorias);
    }
    public function editDel()
    {
@@ -48,6 +50,7 @@
      $id_categoria = $_POST['categoria'] ;
      $talle = $_POST['talle'];
      $descripcion = $_POST['descripcion'];
+     $imagenes= $_POST['imagenes'];
 
     if(!empty($id_categoria) && !empty($talle)&& !empty($descripcion)&& !empty($id)){
       $this->model->editarProducto($id,$talle, $descripcion,$id_categoria, $imagenes);
