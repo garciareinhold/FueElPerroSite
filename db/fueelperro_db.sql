@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2017 a las 01:51:25
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 10-11-2017 a las 08:59:35
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -61,10 +61,13 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `puntaje`, `usuario`, `descripcion`, `id_delantal`) VALUES
-(1, 5, 'pepe', 'DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,DEscripcion1,', 3),
-(2, 4, 'Jose', 'DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,DEscripcion2,', 3),
-(3, 3, 'josele', 'on2,Dcripñññññññññññññññññ', 12),
-(4, 2, 'fffff', 'vvvvvvvvhhhhhhhhhhhhh', 11);
+(1, 5, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
+(2, 4, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
+(3, 3, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 12),
+(4, 2, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 11),
+(5, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 3),
+(6, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 3),
+(7, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 11);
 
 -- --------------------------------------------------------
 
@@ -107,7 +110,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_admin`, `usuario`, `clave`, `mail`) VALUES
-(1, 'arturo', '$2y$10$psoHOtN0hB3uCCsczXP7kuOsEY2wPjSvc4rcu61jq2a18Bq8Zuh7W', 'arturogreinhold@gmail.com');
+(1, 'arturo', '$2y$10$psoHOtN0hB3uCCsczXP7kuOsEY2wPjSvc4rcu61jq2a18Bq8Zuh7W', 'arturogreinhold@gmail.com'),
+(2, 'passa', '$2y$10$PXcrUsc7nz/5km.z.zKCLODVgH26xG7jI/j6cID7BAMpMXipm6sce', 'luchontandil@hotmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -152,7 +156,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
@@ -162,7 +166,7 @@ ALTER TABLE `delantal`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
