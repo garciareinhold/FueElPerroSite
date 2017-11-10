@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 //Rest
 let templateComentarios;
+var interval = null;
 $.ajax({ url: 'js/templates/comentarios.mst'}).done( template => templateComentarios = template);
 
 function loadComments(idDelantal) {
@@ -88,9 +89,9 @@ function createComment(idDelantal) {
   function mostrarDetalle(data) {
     let id_delantal={id: data};
     $.post("delantal",id_delantal,adminMostrarAjax);
-    setTimeout(function() {
-      loadComments(data);
-    }, 1000);
+    setTimeout(function(){loadComments(data);}, 650);
+    clearInterval(interval);
+    interval = setInterval(function(){loadComments(data);},2000);
   }
 
 // Function para mostar Contenido de ajax y bindear funciones
