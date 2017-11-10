@@ -19,10 +19,10 @@ class ComentariosApi extends Api
     $id_delantal= $url_params[":id"];
     $comentarios = $this->model->getComentarios($id_delantal);
     //Cambio los id por los nombres de usuario para mejor visualizacion
-    for ($i=0; $i < sizeOf($comentarios) ; $i++) {
-      $userName = $this->model->getUser($comentarios[$i]['usuario']);
-      $comentarios[$i]["usuario"] = $userName[0]["usuario"];
-    }
+    // for ($i=0; $i < sizeOf($comentarios) ; $i++) {
+    //   $userName = $this->model->getUser($comentarios[$i]['usuario']);
+    //   $comentarios[$i]["usuario"] = $userName[0]["usuario"];
+    // }
     $response= new stdClass();
     $response->comentarios=$comentarios;
     $response->status=200;
@@ -32,10 +32,13 @@ class ComentariosApi extends Api
   public function getComentario($url_params = [])
   {
     $comentario = $this->model->getComentario($url_params[':id']);
-    $response= new stdClass();
-    $response->comentario= $comentario;
-    $response->status=200;
-    return $this->json_response($response, 200);
+    if($comentario){
+      $response= new stdClass();
+      $response->comentario= $comentario;
+      $response->status=200;
+      return $this->json_response($response, 200);
+    }
+    else return $this->json_response(false, 404);
   }
 
   public function deleteComentario($url_params = [])

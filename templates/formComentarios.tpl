@@ -19,5 +19,6 @@
       <label for="descripcion">Comentario:</label>
       <textarea class="form-control" id="descripcion" rows="3"></textarea>
     </div>
+    <button type="submit" id="agregarComentario" data-id="{$producto['id_delantal']}" name="button">Comentar</button>
   </form>
 </div>

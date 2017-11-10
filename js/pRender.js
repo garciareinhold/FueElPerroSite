@@ -1,54 +1,57 @@
 $(document).ready(function(){
 
-//Rest
-let templateComentarios;
-var interval = null;
-$.ajax({ url: 'js/templates/comentarios.mst'}).done( template => templateComentarios = template);
+  //Rest
+  let templateComentarios;
+  var interval = null;
+  $.ajax({ url: 'js/templates/comentarios.mst'}).done( template => templateComentarios = template);
 
-function loadComments(idDelantal) {
-      $.ajax("api/comentarios/"+idDelantal)
-          .done(function(comentarios) {
-            let rendered = Mustache.render(templateComentarios , comentarios);
-            console.log(rendered);
-            $('#comentarios').html(rendered);
+  function loadComments(idDelantal) {
+        $.ajax("api/comentarios/"+idDelantal)
+            .done(function(comentarios) {
+              let rendered = Mustache.render(templateComentarios , comentarios);
+              $('#comentarios').html(rendered);
+            })
+            .fail(function() {
+                $('#comentarios').html('<p>No se pudieron cargar los comentarios del producto</p>');
+            });
+  }
+
+  function createComment(idDelantal) {
+      console.log("entre en create comment");
+      let comentario ={
+        "usuario": $('#usuario').val(),
+        "descripcion": $('#descripcion').val(),
+        "id_delantal":idDelantal,
+        "puntaje":$('#puntaje').val()
+      };
+      console.log(comentario);
+      $.ajax({
+            method: "POST",
+            url: "api/comentario",
+            data: JSON.stringify(comentario),
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json"
           })
-          .fail(function() {
-              $('#comentarios').html('<p>No se puedieron cargar los comentarios del producto</p>');
-          });
-  }
-
-function createComment(idDelantal) {
-    let comentario ={
-      "usuario": $('#usuario').val(),
-      "descripcion": $('#descripcion').val(),
-      "id_delantal":idDelantal,
-    };
-
-    $.ajax({
-          method: "POST",
-          url: "api/comentario/",
-          data: JSON.stringify(tarea)
+        .done(function(data) {
+          alert('Fue posible crear el comentario');
+          let rendered = Mustache.render(templateComentarios , data);
+          $('#comentarios').before(rendered);
         })
-      .done(function(data) {
-        let rendered = Mustache.render(templateTarea , data);
-        $('#listaTareas').before(rendered);
-      })
-      .fail(function(data) {
-          console.log(data);
-          alert('Imposible crear el comentario');
-      });
+        .fail(function(data) {
+            console.log(data);
+        })
   }
 
-  function borrarTarea(idTarea) {
+  function borrarTarea(idComentario) {
     $.ajax({
           method: "DELETE",
-          url: "api/tareas/" + idTarea
+          url: "api/comentarios/" + idComentario
         })
       .done(function() {
-         $('#tarea'+idTarea).remove();
+         $('#comentario'+idComentario).remove();
       })
       .fail(function() {
-          alert('Imposible borrar la tarea');
+          alert('Imposible borrar el comentario');
       });
   }
 
@@ -98,6 +101,13 @@ function createComment(idDelantal) {
   function adminMostrarAjax(result) {
       $("#js-pRender").html(result);
 
+      $("#agregarComentario").on("click", function(event){
+        event.preventDefault();
+        console.log("entre en el binding de create comment");
+        let data = $(this).data("id");
+        console.log(data);
+        createComment(data);
+      })
       $( ".editarCat" ).on( "click", function( event ) {
         event.preventDefault();
         let data = $(this).data("id");
