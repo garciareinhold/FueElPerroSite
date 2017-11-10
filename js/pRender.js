@@ -9,10 +9,10 @@ function loadComments(idDelantal) {
           .done(function(comentarios) {
             let rendered = Mustache.render(templateComentarios , comentarios);
             console.log(rendered);
-            $('#comentarios').append(rendered);
+            $('#comentarios').html(rendered);
           })
           .fail(function() {
-              $('#comentarios').append('<p>No se puedieron cargar los comentarios del producto</p>');
+              $('#comentarios').html('<p>No se puedieron cargar los comentarios del producto</p>');
           });
   }
 
@@ -30,11 +30,11 @@ function createComment(idDelantal) {
         })
       .done(function(data) {
         let rendered = Mustache.render(templateTarea , data);
-        $('#listaTareas').append(rendered);
+        $('#listaTareas').before(rendered);
       })
       .fail(function(data) {
           console.log(data);
-          alert('Imposible crear la tarea');
+          alert('Imposible crear el comentario');
       });
   }
 
@@ -88,7 +88,9 @@ function createComment(idDelantal) {
   function mostrarDetalle(data) {
     let id_delantal={id: data};
     $.post("delantal",id_delantal,adminMostrarAjax);
-    loadComments(data);
+    setTimeout(function() {
+      loadComments(data);
+    }, 1000);
   }
 
 // Function para mostar Contenido de ajax y bindear funciones
