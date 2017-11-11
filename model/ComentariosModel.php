@@ -18,9 +18,9 @@ class ComentariosModel extends Model
     $sentencia = $this->db->prepare( "delete from comentario where id_comentario=?");
     $sentencia->execute([$id_comentario]);
   }
-  public function getUser($id_usuario)  //usuario es el nombre del campo donde esta el nombre, a su vez es el nombre de la tabla y el id esta en id_admin
+  public function getUserByID($id_usuario)
   {
-    $sentencia = $this->db->prepare( "select usuario from usuario where id_admin=?");
+    $sentencia = $this->db->prepare( "select username from usuario where id_usuario=? limit 1");
     $sentencia->execute([$id_usuario]);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
