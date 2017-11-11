@@ -30,6 +30,7 @@ class LoginController extends Controller
             $_SESSION['USER'] = $usuario;
             $_SESSION['LAST_ACTIVITY'] = time();
             $_SESSION['LOGGED'] = true;
+            $_SESSION['ADMIN'] = $data[0]['is_admin'];
             header('Location: '.HOME);
         }
         else{
