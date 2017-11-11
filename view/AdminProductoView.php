@@ -10,9 +10,11 @@ class AdminProductoView extends View
   }
   public function mostrarFormEditar($producto, $id_producto, $categorias)
   {
+    $userId = $_SESSION['USERID'];
     $this->smarty->assign('producto', $producto);
     $this->smarty->assign('id_producto', $id_producto);
     $this->smarty->assign('categorias', $categorias);
+    $this->smarty->assign('usuario', $userId);
 
     $this->smarty->display('templates/Admin/editarProductos.tpl');
   }

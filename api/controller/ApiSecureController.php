@@ -44,6 +44,7 @@ class ApiSecureController extends Api
       $id_delantal = $body->id_delantal;
       $userName = $this->model->getUserByID($usuario);
       if (($_SESSION['USER'])==($userName[0]["username"])) {
+
         $comentario = $this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
         $response= new stdClass();
         $response->comentario=[$comentario];

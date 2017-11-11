@@ -12,6 +12,6 @@
         </figcaption>
       </figure>
       {include file="comentarios.tpl"}
-      {include file="formComentarios.tpl"}
+      {* {include file="formComentarios.tpl"} *}
   </section>
 </article>

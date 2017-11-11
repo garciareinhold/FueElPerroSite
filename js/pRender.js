@@ -20,10 +20,10 @@ $(document).ready(function(){
   function createComment(idDelantal) {
       console.log("entre en create comment");
       let comentario ={
+        "puntaje":$('#puntaje').val(),
         "usuario": $('#usuario').val(),
         "descripcion": $('#descripcion').val(),
-        "id_delantal":idDelantal,
-        "puntaje":$('#puntaje').val()
+        "id_delantal":String(idDelantal)
       };
       console.log(comentario);
       $.ajax({

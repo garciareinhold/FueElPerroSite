@@ -1,9 +1,9 @@
 <div class="container">
   <form>
     <h2>Déjenos su opinión</h2>
-    <div class="form-group">
+    <div class="form-group hidden">
       <label for="nombre">Usuario:</label>
-      <input type="text" class="form-control" id="usuario" ></input>
+      <input type="text" class="form-control" id="usuario" value="{{$usuario}}" ></input>
     </div>
     <div class="form-group">
       <label for="exampleSelect1">Puntuación:</label>
