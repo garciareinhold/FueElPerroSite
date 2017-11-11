@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container col-md-8">
   <form>
     <h2>Déjenos su opinión</h2>
     <div class="form-group hidden">
