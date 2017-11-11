@@ -167,8 +167,9 @@ $(document).ready(function(){
         let data = $(this).data("id");
         borrarProd(data);
       });
-      $("#imagenesProducto").on("submit", function(event){
+      $("#agregarProd").on("submit", function(event){
         event.preventDefault();
+        console.log("entre a agregar producto");
         let form_data= new FormData(this);
         $.ajax({
           url: "agregarProd",
@@ -177,6 +178,7 @@ $(document).ready(function(){
           data: form_data,
           type:"post",
           success: function(data){
+            console.log(data);
             adminMostrarAjax(data);
           }
         });

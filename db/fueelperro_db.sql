@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2017 a las 23:04:17
+-- Tiempo de generación: 11-11-2017 a las 15:00:26
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -91,9 +91,10 @@ CREATE TABLE `delantal` (
 --
 
 INSERT INTO `delantal` (`id_delantal`, `talle_disponible`, `descripcion`, `id_categoria`) VALUES
-(3, 'XL', 'Un delantal muy practico para usos multiples', 65),
+(3, 'rrrrrr', 'ddddddddddddddddddddddddddddd', 70),
 (11, 'tt', 'Ricota', 65),
-(12, 'XXXL', 'Un delantal con mÃºltiples aplicaciones', 70);
+(12, 'XXXL', 'Un delantal con mÃºltiples aplicaciones', 70),
+(16, 'EdicionIma', 'edicion imagen', 71);
 
 -- --------------------------------------------------------
 
@@ -112,16 +113,16 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_imagen`, `locacion`, `id_delantal`) VALUES
-(6, 'delantal1.png', 3),
-(7, 'delantal1.png', 3),
-(8, 'delantal1.png', 3),
-(9, 'delantal1.png', 3),
-(10, 'delantal1.png', 11),
-(11, 'delantal1.png', 11),
-(12, 'delantal1.png', 11),
-(13, 'delantal1.png', 11),
-(14, 'delantal1.png', 12),
-(15, 'delantal1.png', 12);
+(6, 'images/delantal1.png', 3),
+(7, 'images/delantal1.png', 3),
+(8, 'images/delantal1.png', 3),
+(9, 'images/delantal1.png', 3),
+(10, 'images/delantal1.png', 11),
+(11, 'images/delantal1.png', 11),
+(12, 'images/delantal1.png', 11),
+(13, 'images/delantal1.png', 11),
+(14, 'images/delantal1.png', 12),
+(15, 'images/delantal1.png', 12);
 
 -- --------------------------------------------------------
 
@@ -199,12 +200,12 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT de la tabla `delantal`
 --
 ALTER TABLE `delantal`
-  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

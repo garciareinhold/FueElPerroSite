@@ -38,6 +38,7 @@
      $categoria = $_POST['categoria'];
      $descripcion=$_POST['descripcion'];
      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+     var_dump($_FILES['imagenes']['type']);
 
     if(!empty($talle) && !empty($categoria)&& !empty($descripcion)){
       if ($this->aceptaFormato($_FILES['imagenes']['type'])) {
@@ -74,7 +75,7 @@
         $this->mostrarPanelDelantal();
       }
       else {
-        $this->view->errorCrear("Las imagenes tienen que ser PNG.");
+        $this->view->errorCrear("Las imagenes tienen que ser JPG.");
       }
     }
     else{
@@ -89,7 +90,7 @@
    }
    private function aceptaFormato($imagenesTipos){
        foreach ($imagenesTipos as $tipo) {
-         if($tipo != 'image/png') {
+         if($tipo != 'image/jpeg') {
            return false;
          }
        }
