@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2017 a las 03:36:18
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.23
+-- Tiempo de generación: 12-11-2017 a las 15:22:44
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -57,25 +57,6 @@ CREATE TABLE `comentario` (
   `id_delantal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `comentario`
---
-
-INSERT INTO `comentario` (`id_comentario`, `puntaje`, `usuario`, `descripcion`, `id_delantal`) VALUES
-(2, 4, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
-(3, 3, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 12),
-(4, 2, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 11),
-(5, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 3),
-(6, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 3),
-(7, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 11),
-(12, 4, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
-(13, 4, '2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
-(14, 3, '1', 'asdasdna sd asd  asd a sd as d', 3),
-(15, 3, '1', 'asdasdna sd asd  asd a sd as d', 3),
-(16, 1, '1', 'asdkaksdjaksdkajsdhkajsdkjasdhkashkdkhkasd  d as das d ', 3),
-(17, 1, '1', 'zcasdasdasd', 11),
-(18, 4, '1', 'no me gusto :(', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -94,9 +75,9 @@ CREATE TABLE `delantal` (
 --
 
 INSERT INTO `delantal` (`id_delantal`, `talle_disponible`, `descripcion`, `id_categoria`) VALUES
-(3, 'rrrrrr', 'ddddddddddddddddddddddddddddd', 70),
 (11, 'tt', 'Ricota', 65),
-(12, 'XXXL', 'Un delantal con mÃºltiples aplicaciones', 70);
+(12, 'XXXL', 'Un delantal con mÃºltiples aplicaciones', 70),
+(13, 'ggggg', 'gggggggggggggggggggggg', 65);
 
 -- --------------------------------------------------------
 
@@ -116,7 +97,8 @@ CREATE TABLE `imagen` (
 
 INSERT INTO `imagen` (`id_imagen`, `locacion`, `id_delantal`) VALUES
 (13, 'images/delantal1.png', 11),
-(15, 'images/delantal1.png', 12);
+(15, 'images/delantal1.png', 12),
+(16, 'images/5a084e8f6ce4e.jpg', 13);
 
 -- --------------------------------------------------------
 
@@ -129,7 +111,7 @@ CREATE TABLE `usuario` (
   `username` varchar(100) NOT NULL,
   `clave` varchar(100) NOT NULL,
   `mail` varchar(100) NOT NULL,
-  `is_admin` bit(1) NOT NULL
+  `is_admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
@@ -137,8 +119,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `username`, `clave`, `mail`, `is_admin`) VALUES
-(1, 'arturo', '$2y$10$psoHOtN0hB3uCCsczXP7kuOsEY2wPjSvc4rcu61jq2a18Bq8Zuh7W', 'arturogreinhold@gmail.com', b'1'),
-(2, 'passa', '$2y$10$PXcrUsc7nz/5km.z.zKCLODVgH26xG7jI/j6cID7BAMpMXipm6sce', 'luchontandil@hotmail.com', b'0');
+(1, 'arturo', '$2y$10$psoHOtN0hB3uCCsczXP7kuOsEY2wPjSvc4rcu61jq2a18Bq8Zuh7W', 'arturogreinhold@gmail.com', 1),
+(2, 'passa', '$2y$10$PXcrUsc7nz/5km.z.zKCLODVgH26xG7jI/j6cID7BAMpMXipm6sce', 'luchontandil@hotmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -190,17 +172,17 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
 ALTER TABLE `delantal`
-  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

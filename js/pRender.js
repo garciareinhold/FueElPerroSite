@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  //Rest
+  //Rest comentarios
   let templateComentarios;
   var interval = null;
   $.ajax({ url: 'js/templates/comentarios.mst'}).done( template => templateComentarios = template);
@@ -12,20 +12,24 @@ $(document).ready(function(){
               data.admin=$("#spanInvisible").data("id");
               let rendered = Mustache.render(templateComentarios , data);
               $('#comentarios').html(rendered);
+              $("#borrarComentario").on("click", function(event){
+                console.log("entre en el binfing de load comments");
+                event.preventDefault();
+                let data= $(this).data("id");
+                deleteComment(data);
+              })
             })
             .fail(function() {
                 $('#comentarios').html('<p>No se pudieron cargar los comentarios del producto</p>');
             });
   }
   function createComment(idDelantal) {
-      console.log("entre en create comment");
       let comentario ={
         "puntaje":$('#puntaje').val(),
         "usuario": $('#usuario').val(),
         "descripcion": $('#descripcion').val(),
         "id_delantal":String(idDelantal)
       };
-      console.log(comentario);
       $.ajax({
             method: "POST",
             url: "api/comentario",
@@ -39,23 +43,22 @@ $(document).ready(function(){
         })
         .fail(function(data) {
             alert("Imposible crear el comentario");
-            console.log(data);
         })
   }
-
-  function borrarTarea(idComentario) {
+  function deleteComment(data){
+    console.log("entre en delete comment"+data);
     $.ajax({
           method: "DELETE",
-          url: "api/comentarios/" + idComentario
+          url: "api/comentario/" + data
         })
       .done(function() {
-         $('#comentario'+idComentario).remove();
+         $("#"+data).remove();
       })
       .fail(function() {
           alert('Imposible borrar el comentario');
       });
   }
-  //function delete va a tener que llamar a mostrar imagenes
+
 
 //ABM categorias
   function editarCat(data) {
@@ -72,7 +75,7 @@ $(document).ready(function(){
     let id_categoria= {id: data};
     $.post("borrarCategoria",id_categoria,adminMostrarAjax);
   }
-  //ABM productos
+  //ABM productos e imágenes
   function editarProd(data) {
     $.post("editarProducto",data,adminMostrarAjax);
   }
@@ -100,11 +103,8 @@ $(document).ready(function(){
     interval = setInterval(function(){loadComments(data);},2000);
   }
   function deleteImage(id_imagen,id_producto) {
-    console.log("entre en delete image");
     let productoImagen={id_image: id_imagen, id_product: id_producto};
-    console.log(productoImagen);
     $.post("deleteImages",productoImagen, function(data){
-      console.log(data);
       $("#contenedorImagenes").html(data);
       $(".borrarImagen").on("click", function(event){
         event.preventDefault();
@@ -121,20 +121,15 @@ $(document).ready(function(){
       $("#js-pRender").html(result);
 
       $(".borrarImagen").on("click", function(event){
-        console.log("entre en borrar imagen");
         event.preventDefault();
         let id_imagen= $(this).data("id");
         let id_producto= $(this).data("producto");
-        console.log(id_imagen);
-        console.log(id_producto);
         deleteImage(id_imagen,id_producto);
       })
 
       $("#agregarComentario").on("click", function(event){
         event.preventDefault();
-        console.log("entre en el binding de create comment");
         let data = $(this).data("id");
-        console.log(data);
         createComment(data);
       })
       $( ".editarCat" ).on( "click", function( event ) {
@@ -169,7 +164,6 @@ $(document).ready(function(){
       });
       $("#agregarProd").on("submit", function(event){
         event.preventDefault();
-        console.log("entre a agregar producto");
         let form_data= new FormData(this);
         $.ajax({
           url: "agregarProd",
@@ -178,7 +172,6 @@ $(document).ready(function(){
           data: form_data,
           type:"post",
           success: function(data){
-            console.log(data);
             adminMostrarAjax(data);
           }
         });

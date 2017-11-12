@@ -1,5 +1,5 @@
 {{#comentarios}}
-<div class="row" id="comentario{{id_comentario}}">
+<div class="row" id="{{id_comentario}}">
   <div class="col-sm-1">
     <div class="thumbnail">
       <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Usuario muy contento">
@@ -20,7 +20,7 @@
       </div>
     </div><!-- /panel panel-default -->
     {{#admin}}
-    <button type="button" name="button">Boton borrar</button>
+    <button type="button" id="borrarComentario" data-id="{{id_comentario}}" name="button">Boton borrar</button>
     {{/admin}}
   </div><!-- /col-sm-5 -->
 </div>
