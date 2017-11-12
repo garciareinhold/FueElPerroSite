@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2017 a las 15:22:44
+-- Tiempo de generación: 12-11-2017 a las 23:34:02
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -57,6 +57,16 @@ CREATE TABLE `comentario` (
   `id_delantal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `puntaje`, `usuario`, `descripcion`, `id_delantal`) VALUES
+(23, 2, 'arturo', 'blaaaaaaaaaaaaaaaaaaaaaaa', 11),
+(24, 2, 'passa', 'blaaaaaaaaaaaaaaaaaaaaaa', 12),
+(25, 3, 'arrtttt', 'ddddddd', 13),
+(26, 2, 'DASDASDASDdfdsfsdf', 'sfsdfsdfsdfsdfsdfsd', 13);
+
 -- --------------------------------------------------------
 
 --
@@ -76,8 +86,10 @@ CREATE TABLE `delantal` (
 
 INSERT INTO `delantal` (`id_delantal`, `talle_disponible`, `descripcion`, `id_categoria`) VALUES
 (11, 'tt', 'Ricota', 65),
-(12, 'XXXL', 'Un delantal con mÃºltiples aplicaciones', 70),
-(13, 'ggggg', 'gggggggggggggggggggggg', 65);
+(12, 'dsdsds', 'sdsdsddsd', 69),
+(13, 'ggggg', 'gggggggggggggggggggggg', 65),
+(14, '2222', '222222', 65),
+(15, 'dsdsd', 'sdsdsdsd', 65);
 
 -- --------------------------------------------------------
 
@@ -96,9 +108,13 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_imagen`, `locacion`, `id_delantal`) VALUES
-(13, 'images/delantal1.png', 11),
 (15, 'images/delantal1.png', 12),
-(16, 'images/5a084e8f6ce4e.jpg', 13);
+(16, 'images/5a084e8f6ce4e.jpg', 13),
+(19, 'images/5a08c2ace8d67.jpg', 14),
+(20, 'images/5a08c2ace9899.jpg', 14),
+(23, 'images/5a08c924cf16e.jpg', 15),
+(24, 'images/5a08c924d11de.jpg', 15),
+(25, 'images/5a08c924d2c9c.jpg', 15);
 
 -- --------------------------------------------------------
 
@@ -120,7 +136,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `username`, `clave`, `mail`, `is_admin`) VALUES
 (1, 'arturo', '$2y$10$psoHOtN0hB3uCCsczXP7kuOsEY2wPjSvc4rcu61jq2a18Bq8Zuh7W', 'arturogreinhold@gmail.com', 1),
-(2, 'passa', '$2y$10$PXcrUsc7nz/5km.z.zKCLODVgH26xG7jI/j6cID7BAMpMXipm6sce', 'luchontandil@hotmail.com', 0);
+(2, 'passa', '$2y$10$PXcrUsc7nz/5km.z.zKCLODVgH26xG7jI/j6cID7BAMpMXipm6sce', 'luchontandil@hotmail.com', 0),
+(4, 'nuevoparausuarios', '$2y$10$ZbgiRt.5/ojQpb0Y4L3lVu3lfcLBnWXJK2MeUzW5DMOGZE47TOIFq', 'nuevo@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -167,27 +184,27 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
 ALTER TABLE `delantal`
-  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --

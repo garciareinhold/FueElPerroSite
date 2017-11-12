@@ -27,7 +27,8 @@ class UsuarioModel extends Model
   public function editarUsuario($id_usuario, $isAdmin)
   {
     $sentencia = $this->db->prepare('UPDATE usuario SET is_admin=? where id_usuario=?');
-    $sentencia->execute($isAdmin, $id_usuario);
+    $sentencia->execute([$isAdmin, $id_usuario]);
+    return $this->getUsuarios();
   }
 }
 

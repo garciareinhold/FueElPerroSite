@@ -59,6 +59,18 @@ $(document).ready(function(){
       });
   }
 
+//ABM usuarios
+  function deleteUser(id_usuario) {
+    let data= {id: id_usuario};
+    $.post("borrarUsuario",data,adminMostrarAjax);
+  }
+  function editUser(id_usuario, valorPermiso) {
+    let data={
+      id: id_usuario,
+      permiso: valorPermiso
+    };
+    $.post("editarUsuario",data,adminMostrarAjax);
+  }
 
 //ABM categorias
   function editarCat(data) {
@@ -119,7 +131,17 @@ $(document).ready(function(){
 // Function para mostar Contenido de ajax y bindear funciones
   function adminMostrarAjax(result) {
       $("#js-pRender").html(result);
-
+      $(".editarUsuario").on("click", function(event){
+        event.preventDefault();
+        let id_usuario= $(this).data("id");
+        let permiso=$(this).data("permiso");
+        editUser(id_usuario,permiso);
+      })
+      $(".borrarUsuario").on("click", function(event){
+        event.preventDefault();
+        let idUsuario=$(this).data("id");
+        deleteUser(idUsuario);
+      })
       $(".borrarImagen").on("click", function(event){
         event.preventDefault();
         let id_imagen= $(this).data("id");

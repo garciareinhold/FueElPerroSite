@@ -5,6 +5,7 @@ class ComentariosModel extends Model
   {
     $sentencia = $this->db->prepare( "select * from comentario where id_delantal=?");
     $sentencia->execute([$id_delantal]);
+     var_dump($sentencia->fetchAll(PDO::FETCH_ASSOC));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
   function getComentario($id_comentario)

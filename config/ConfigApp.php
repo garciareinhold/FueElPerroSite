@@ -13,6 +13,10 @@ class ConfigApp
       'delantal' => 'ProductoController#productoDetalle',
       'categorias' => 'CategoriaController#categoria',
       'delantalesCategoria' => 'ProductoController#productoPorCategoria',
+      //ADMIN ABM USER
+      'borrarUsuario'=>'AdminUserController#deleteUser',
+      'editarUsuario'=>'AdminUserController#editUser',
+      'listarUsuarios'=>'AdminUserController#getUsuarios',
       //ADMIN ABM CAT
       'mostrarEditarCategoria' => 'AdminCategoriaController#showEditCat',
       'listarCategoria' => 'AdminCategoriaController#mostrarCategoria',

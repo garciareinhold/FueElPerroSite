@@ -36,7 +36,7 @@ class ApiSecureController extends Api
     }
   }
   public function createComentario($url_params = []) {
-    if ($_SESSION['LOGGED']) {
+    if ($_SESSION['LOGGED'] && $_SESSION['ADMIN'] == 0) {
       $body = json_decode($this->raw_data);
       $usuario = $body->usuario;
       $descripcion = $body->descripcion;

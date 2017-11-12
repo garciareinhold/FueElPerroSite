@@ -18,10 +18,10 @@ class ComentariosApi extends Api
   {
     $id_delantal= $url_params[":id"];
     $comentarios = $this->model->getComentarios($id_delantal);
-    for ($i=0; $i < sizeOf($comentarios) ; $i++) {
-     $user = $this->model->getUserByID($comentarios[$i]['usuario']);
-     $comentarios[$i]["usuario"] = $user[0]["username"];
-    }
+     for ($i=0; $i < sizeOf($comentarios) ; $i++) {
+      $user = $this->model->getUserByID($comentarios[$i]['usuario']);
+      $comentarios[$i]["usuario"] = $user[0]["username"];
+     }
     $response= new stdClass();
     $response->comentarios=$comentarios;
     $response->status=200;

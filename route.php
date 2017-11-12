@@ -14,6 +14,8 @@ include_once 'controller/CategoriaController.php';
 include_once 'controller/AdminStaticController.php';
 include_once 'controller/AdminProductoController.php';
 include_once 'controller/AdminCategoriaController.php';
+include_once 'controller/AdminUserController.php';
+
 
 function parseURL($url)
 {
