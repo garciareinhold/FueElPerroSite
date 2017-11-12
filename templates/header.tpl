@@ -15,8 +15,12 @@
           <img src="images/marca_pagina.jpg" alt="logo_pagina" id="logo_pagina">
         </figure>
       </header>
-        {if $session=="true"}
-          {include file="Admin/navegacionAdmin.tpl"}
+        {if $session=="1"}
+          {if $admin=="1"}
+            {include file="Admin/navegacionAdmin.tpl"}
           {else}
             {include file="navegacionUsuario.tpl"}
+          {/if}
+        {else}
+          {include file="navegacionVisitante.tpl"}
         {/if}

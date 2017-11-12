@@ -35,9 +35,6 @@
       </form>
       <h2>Editar Comentarios</h2>
       {include file="comentarios.tpl"}
-      <div class="row">
-      {include file="formComentarios.tpl"}
-      </div>
     </div>
   </div>
 </section>

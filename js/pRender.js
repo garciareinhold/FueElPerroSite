@@ -71,6 +71,9 @@ $(document).ready(function(){
   function agregarCat(data) {
     $.post("agregarCategoria",data,adminMostrarAjax);
   }
+  function createUser(data) {
+    $.post("agregarUsuario",data,adminMostrarAjax);
+  }
   function borrarCat(data) {
     let id_categoria= {id: data};
     $.post("borrarCategoria",id_categoria,adminMostrarAjax);
@@ -126,7 +129,11 @@ $(document).ready(function(){
         let id_producto= $(this).data("producto");
         deleteImage(id_imagen,id_producto);
       })
-
+      $("#crearUsuario").on("submit", function(event){
+        event.preventDefault();
+        let data = $(this).serialize();
+        createUser(data);
+      })
       $("#agregarComentario").on("click", function(event){
         event.preventDefault();
         let data = $(this).data("id");

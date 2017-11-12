@@ -27,6 +27,8 @@ class ConfigApp
       'borrarProducto'=> 'AdminProductoController#deleteDel',
       'editarProducto' => 'AdminProductoController#editDel',
       //Login/logout
+      'agregarUsuario'=>'LoginController#createUser',
+      'registrarse'=>'LoginController#registrarUsuario',
       'login' => 'LoginController#login',
       'autenticacion' => 'LoginController#autenticar',
       'logout' => 'LoginController#cerrarSesion',

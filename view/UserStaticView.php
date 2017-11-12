@@ -1,7 +1,8 @@
 <?php
 class UserStaticView extends View
 {
-  function mostrarIndex($status){
+  function mostrarIndex($status, $is_admin){
+    $this->smarty->assign('admin',$is_admin);
     $this->smarty->assign('session',$status);
      $this->smarty->display('templates/index.tpl');
      }
