@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2017 a las 21:28:26
+-- Tiempo de generación: 12-11-2017 a las 03:36:18
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -62,13 +62,19 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `puntaje`, `usuario`, `descripcion`, `id_delantal`) VALUES
-(1, 5, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
 (2, 4, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
 (3, 3, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 12),
 (4, 2, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 11),
 (5, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 3),
 (6, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 3),
-(7, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 11);
+(7, 3, '2', 'HOLA SOY PASSA Y ESOTY COMENTANDOASKDJ', 11),
+(12, 4, '1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
+(13, 4, '2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 3),
+(14, 3, '1', 'asdasdna sd asd  asd a sd as d', 3),
+(15, 3, '1', 'asdasdna sd asd  asd a sd as d', 3),
+(16, 1, '1', 'asdkaksdjaksdkajsdhkajsdkjasdhkashkdkhkasd  d as das d ', 3),
+(17, 1, '1', 'zcasdasdasd', 11),
+(18, 4, '1', 'no me gusto :(', 3);
 
 -- --------------------------------------------------------
 
@@ -109,9 +115,7 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_imagen`, `locacion`, `id_delantal`) VALUES
-(6, 'images/delantal1.png', 3),
 (13, 'images/delantal1.png', 11),
-(14, 'images/delantal1.png', 12),
 (15, 'images/delantal1.png', 12);
 
 -- --------------------------------------------------------
@@ -186,17 +190,17 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `delantal`
 --
 ALTER TABLE `delantal`
-  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_delantal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
