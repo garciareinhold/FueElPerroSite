@@ -17,7 +17,7 @@ class LoginController extends Controller
   public function createUser()
   {
     $usuario = $_POST['usuario'];
-    $clave = $_POST['password'];
+    $clave = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $mail = $_POST['mail'];
     $data= $this->model->guardarUsuario($usuario, $clave, $mail);
     session_start();
@@ -47,7 +47,6 @@ class LoginController extends Controller
             $_SESSION['LAST_ACTIVITY'] = time();
             $_SESSION['LOGGED'] = true;
             $_SESSION['ADMIN'] = $data[0]['is_admin'];
-            var_dump($_SESSION['ADMIN'] );
             $_SESSION['USERID'] = $data[0]['id_usuario'];
             header('Location: '.HOME);
         }

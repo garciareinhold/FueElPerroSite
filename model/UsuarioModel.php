@@ -13,8 +13,8 @@ class UsuarioModel extends Model
   }
   public function guardarUsuario($usernave, $clave, $mail)
   {
-    $isAdmin=false;
-    $sentencia = $this->db->prepare('INSERT INTO usuario(username,clave,mail) VALUES(?,?,?,?)');
+    $isAdmin=0;
+    $sentencia = $this->db->prepare('INSERT INTO usuario(username,clave,mail,is_admin) VALUES(?,?,?,?)');
     $sentencia->execute([$usernave,$clave,$mail,$isAdmin]);
     $id_user= $this->db->lastInsertId();
     return $this->getUser($id_user);
