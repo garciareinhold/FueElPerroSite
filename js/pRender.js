@@ -30,6 +30,7 @@ $(document).ready(function(){
         "descripcion": $('#descripcion').val(),
         "id_delantal":String(idDelantal)
       };
+      console.log(comentario);
       $.ajax({
             method: "POST",
             url: "api/comentario",
@@ -151,6 +152,7 @@ $(document).ready(function(){
       $("#agregarComentario").on("click", function(event){
         event.preventDefault();
         let data = $(this).data("id");
+        console.log("entre en el binding", data);
         createComment(data);
       })
       $( ".editarCat" ).on( "click", function( event ) {

@@ -44,6 +44,9 @@
     }
     public function productoDetalle()
     {
+      session_start();
+      $puedeAgregar= ($_SESSION['LOGGED'] && $_SESSION['ADMIN'] == 0);
+      $nombreUsuario= $_SESSION['USER'];
       $id_delantal= $_POST['id'];
       $delantal= $this->model->getProducto($id_delantal);
       $id_categoria=$delantal["id_categoria"];
@@ -54,7 +57,7 @@
           $delantal_copia["id_categoria"]=$categoria["nombre_categoria"];
         }
       }
-      $this->view->mostrarProducto($delantal_copia);
+      $this->view->mostrarProducto($delantal_copia, $puedeAgregar,$nombreUsuario);
     }
 }
  ?>

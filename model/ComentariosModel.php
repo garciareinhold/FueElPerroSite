@@ -20,8 +20,8 @@ class ComentariosModel extends Model
   }
  public function guardarComentario($usuario, $descripcion, $puntaje, $id_delantal)
   {
-    $sentencia = $this->db->prepare('INSERT INTO comentario(usuario,descripcion,puntaje,id_delantal) VALUES(?,?,?,?)');
-    $sentencia->execute([$usuario,$descripcion,$puntaje,$id_delantal]);
+    $sentencia = $this->db->prepare('INSERT INTO comentario(puntaje,usuario,descripcion,id_delantal) VALUES(?,?,?,?)');
+    $sentencia->execute([$puntaje,$usuario,$descripcion,$id_delantal]);
     $id_comentario = $this->db->lastInsertId();
     return $this->getComentario($id_comentario);
   }

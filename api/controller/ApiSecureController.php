@@ -1,6 +1,8 @@
 <?php
+
   require_once('../model/ComentariosModel.php');
   require_once('Api.php');
+
 class ApiSecureController extends Api
 {
 
@@ -35,29 +37,27 @@ class ApiSecureController extends Api
       return $this->json_response(false, 404);
     }
   }
+
   public function createComentario($url_params = []) {
     if ($_SESSION['LOGGED'] && $_SESSION['ADMIN'] == 0) {
+
       $body = json_decode($this->raw_data);
       $usuario = $body->usuario;
       $descripcion = $body->descripcion;
       $puntaje = $body->puntaje;
       $id_delantal = $body->id_delantal;
-      $userName = $this->model->getUserByID($usuario);
-      if (($_SESSION['USER'])==($userName[0]["username"])) {
+      $comentario=$this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
 
-        $comentario = $this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
-        $response= new stdClass();
-        $response->comentario=[$comentario];
-        $response->status=200;
-        return $this->json_response($response, 200);
-      }
-      else {
-        return $this->json_response(false, 404);
-      }
+      $response= new stdClass();
+      $response->comentario=$comentario;
+      $response->status=200;
+
+      return $this->json_response($response, 200);
     }
     else {
       return $this->json_response(false, 404);
     }
   }
 }
+
 ?>

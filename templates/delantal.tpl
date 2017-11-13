@@ -12,6 +12,8 @@
         </figcaption>
       </figure>
       {include file="comentarios.tpl"}
-      {* {include file="formComentarios.tpl"} *}
+      {if $puedeAgregar}
+      {include file="formComentarios.tpl"}
+      {/if}
   </section>
 </article>
