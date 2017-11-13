@@ -37,8 +37,7 @@ class ConfigApp
       'autenticacion' => 'LoginController#autenticar',
       'logout' => 'LoginController#cerrarSesion',
       //Admin Navegacion
-      'admin' => 'AdminStaticController#index',
-      'db'=>'dbAutoClass#iniciar'
+      'admin' => 'AdminStaticController#index'
     ];
 
 }

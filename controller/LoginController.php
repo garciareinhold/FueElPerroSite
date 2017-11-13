@@ -19,14 +19,19 @@ class LoginController extends Controller
     $usuario = $_POST['usuario'];
     $clave = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $mail = $_POST['mail'];
-    $data= $this->model->guardarUsuario($usuario, $clave, $mail);
-    session_start();
-    $_SESSION['USER'] = $usuario;
-    $_SESSION['LAST_ACTIVITY'] = time();
-    $_SESSION['LOGGED'] = true;
-    $_SESSION['ADMIN'] = $data[0]['is_admin'];
-    $_SESSION['USERID'] = $data[0]['id_usuario'];
-    header('Location: '.HOME);
+    if($this->model->getUser($usuario) == []){
+      $data= $this->model->guardarUsuario($usuario, $clave, $mail);
+      session_start();
+      $_SESSION['USER'] = $usuario;
+      $_SESSION['LAST_ACTIVITY'] = time();
+      $_SESSION['LOGGED'] = true;
+      $_SESSION['ADMIN'] = $data[0]['is_admin'];
+      $_SESSION['USERID'] = $data[0]['id_usuario'];
+      header('Location: '.HOME);
+    }
+    else {
+      $this->view->mostrarRegistro('Ese username ya esta tomado');
+    }
   }
   public function login()
   {

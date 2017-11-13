@@ -16,16 +16,16 @@ class ComentariosApi extends Api
 
   public function getComentarios($url_params = [])
   {
-    $id_delantal= $url_params[":id"];
-    $comentarios = $this->model->getComentarios($id_delantal);
-     for ($i=0; $i < sizeOf($comentarios) ; $i++) {
-      $user = $this->model->getUserByID($comentarios[$i]['usuario']);
-      $comentarios[$i]["usuario"] = $user[0]["username"];
-     }
-    $response= new stdClass();
-    $response->comentarios=$comentarios;
-    $response->status=200;
+    $comentarios = $this->model->getComentarios($url_params[":id"]);
+    if($comentarios){
+      $response= new stdClass();
+      $response->comentarios=$comentarios;
+      $response->status=200;
     return $this->json_response($response, 200);
+    }
+    else {
+     return $this->json_response(false, 404);
+    }
   }
 
   public function getComentario($url_params = [])
