@@ -3,7 +3,7 @@
   require_once('../model/ComentariosModel.php');
   require_once('Api.php');
 
-class ApiSecureController extends Api
+class ComentariosApiSecureController extends Api
 {
 
   function __construct()

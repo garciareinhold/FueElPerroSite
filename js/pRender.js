@@ -20,7 +20,7 @@ $(document).ready(function(){
               })
             })
             .fail(function() {
-                $('#comentarios').html('<p>No se pudieron cargar los comentarios del producto</p>');
+                $('#comentarios').html('<p>No se encontraron comentarios del producto</p>');
             });
   }
   function createComment(idDelantal) {
@@ -123,7 +123,6 @@ $(document).ready(function(){
         event.preventDefault();
         let id_imagen= $(this).data("id");
         let id_producto= $(this).data("producto");
-
         deleteImage(id_imagen,id_producto);
       })
     })//insertar en el contenedor lo traido y bindear de vuelta);
@@ -132,6 +131,28 @@ $(document).ready(function(){
 // Function para mostar Contenido de ajax y bindear funciones
   function adminMostrarAjax(result) {
       $("#js-pRender").html(result);
+
+      $("#agregarImagenes").on("submit", function(event){
+        event.preventDefault();
+        let form_data= new FormData(this);
+        $.ajax({
+          url: "agregarImagenes",
+          contentType:false,
+          processData:false,
+          data: form_data,
+          type:"post",
+          success: function(data){
+            $("#contenedorImagenes").html(data);
+            $(".borrarImagen").on("click", function(event){
+              event.preventDefault();
+              let id_imagen= $(this).data("id");
+              let id_producto= $(this).data("producto");
+              deleteImage(id_imagen,id_producto);
+            })
+          }
+        });
+        return false;
+      })
       $(".editarUsuario").on("click", function(event){
         event.preventDefault();
         let id_usuario= $(this).data("id");
@@ -202,18 +223,8 @@ $(document).ready(function(){
       });
       $( ".editarDelantales" ).on( "submit", function( event ) {
         event.preventDefault();
-        let form_data= new FormData(this);
-        $.ajax({
-          url: "editarProducto",
-          contentType:false,
-          processData:false,
-          data: form_data,
-          type:"post",
-          success: function(data){
-            adminMostrarAjax(data);
-          }
-        });
-        return false;
+        let data = $(this).serialize();
+        editarProd(data);
       });
       $(".productosCategoria").on("click", function(event){
         event.preventDefault();

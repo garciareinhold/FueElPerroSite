@@ -13,6 +13,5 @@
       <script src="js/bootstrap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" type="text/javascript"></script>
       <script src="./js/pRender.js" type="text/javascript"></script>
-      <!-- <script src="./js/comentarios.js" type="text/javascript"></script> -->
   </body>
 </html>

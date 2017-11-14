@@ -76,13 +76,10 @@ class ProductoModel extends Model
     $sentencia->execute([$value]);
   }
   //edito el producto, llamo a guardar las nuevas imágenes si hay
-  public function editarProducto($id_delantal ,$talle, $descripcion, $id_categoria,$imagenes)
+  public function editarProducto($id_delantal ,$talle, $descripcion, $id_categoria)
   {
     $sentencia = $this->db->prepare('UPDATE delantal SET talle_disponible=?, descripcion=?, id_categoria=?  WHERE id_delantal=?');
     $sentencia->execute(array($talle, $descripcion, $id_categoria, $id_delantal));
-    if($imagenes){
-      $this->guardarImagenes($imagenes, $id_delantal);
-    }
   }
   //borro la imagen del producto segun el id que reciba
   public function borrarImagen($id_imagen){

@@ -4,12 +4,22 @@
       <h1>Editar Producto</h1>
       <span hidden="hidden" id="spanInvisible" data-id="true"></span>
       <div id="contenedorImagenes">
-        {include file="admin/imagenesProducto.tpl"}
+        {if isset ($producto['imagenes'])}
+          {include file="admin/imagenesProducto.tpl"}
+        {/if}
       </div>
+      <form  id="agregarImagenes" data-id=""  method="post">
+        <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <input type="file" id="imagenes" name="imagenes[]" multiple required>
+          <input type="text" class="form-control" id="id" name="id_delantal"  value="{$producto['id_delantal']}" hidden="hidden" readonly>
+          <button type="submit" class="btn btn-default">Agregar</button>
+        </div>
+      </form>
       <form  class="editarDelantales"  method="post">
         <div class="form-group">
           <label for="talle">Id delantal a editar</label>
-          <input type="text" class="form-control" id="id" name="id_delantal"  value="{{$id_producto}}" placeholder="Talle Disponible" readonly>
+          <input type="text" class="form-control" id="id" name="id_delantal"  value="{$producto['id_delantal']}" readonly>
         </div>
         <div class="form-group">
           <label for="talle">Talle Disponible</label>
@@ -26,10 +36,6 @@
         <div class="form-group">
           <label for="descripcion">Descripcion</label>
           <textarea name="descripcion" rows="8" cols="80" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="imagen">Imagen</label>
-          <input type="file" id="imagenes" name="imagenes[]" multiple>
         </div>
         <button type="submit" class="btn btn-default">Actualizar</button>
       </form>
