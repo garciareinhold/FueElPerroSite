@@ -1,11 +1,11 @@
 <?php
   require_once('../model/ComentariosModel.php');
-  require_once('Api.php');
+  require_once('ApiSecuredController.php');
 
 /**
  *
  */
-  class ComentariosApi extends Api
+  class ComentariosApi extends ApiSecuredController
   {
 
     function __construct()
@@ -38,6 +38,54 @@
         return $this->json_response($response, 200);
       }
       else return $this->json_response(false, 404);
+    }
+
+    public function deleteComentario($url_params = [])
+    {
+      if($this->estaLogueado() && $this->esAdministrador()){
+        $id_comentario = $url_params[":id"];
+        $comentario = $this->model->getComentario($id_comentario);
+        if($comentario)
+        {
+          $this->model->deleteComentario($url_params[':id']);
+          return $this->json_response("Borrado exitoso.", 200);
+        }
+        else
+        {
+          return $this->json_response(false, 404);
+        }
+      }
+      else
+      {
+        return $this->json_response(false, 404);
+      }
+    }
+
+    public function createComentario($url_params = [])
+    {
+      if ($this->estaLogueado())
+      {
+        $body = json_decode($this->raw_data);
+        if(!empty($body))
+        {
+          $usuario = $body->usuario;
+          $descripcion = $body->descripcion;
+          $puntaje = $body->puntaje;
+          $id_delantal = $body->id_delantal;
+          $comentario=$this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
+          $response= new stdClass();
+          $response->comentario=$comentario;
+          $response->status=200;
+          return $this->json_response($response, 200);
+        }
+        else {
+          return $this->json_response(false, 404);
+        }
+      }
+      else
+      {
+        return $this->json_response(false, 404);
+      }
     }
 
   }

@@ -10,6 +10,4 @@ resta por hacer:
 		crear delantal, categoria
 		comentario
 
-	error cuando ya existe user con ese Mail
-
 	funcion delete, anda a veces y a veces no

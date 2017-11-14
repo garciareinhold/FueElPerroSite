@@ -13,7 +13,7 @@ $(document).ready(function(){
           data.admin=$("#spanInvisible").data("id");
           let rendered = Mustache.render(templateComentarios , data);
           $('#comentarios').html(rendered);
-          $('.borrarComentario').click(function(event){
+          $('.borrarComentario').bind("click", function(event){
             let data= $(this).data("id");
             deleteComment(data);
           })
