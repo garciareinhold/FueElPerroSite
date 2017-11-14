@@ -13,9 +13,7 @@ $(document).ready(function(){
           data.admin=$("#spanInvisible").data("id");
           let rendered = Mustache.render(templateComentarios , data);
           $('#comentarios').html(rendered);
-          $("#borrarComentario").on("click", function(event){
-            console.log("entre en el binfing de load comments");
-            event.preventDefault();
+          $('.borrarComentario').click(function(event){
             let data= $(this).data("id");
             deleteComment(data);
           })
@@ -52,7 +50,7 @@ $(document).ready(function(){
 
   function deleteComment(data)
   {
-    console.log("entre en delete comment"+data);
+    console.log("entre en delete comment "+data);
     $.ajax({
         method: "DELETE",
         url: "api/comentario/" + data
