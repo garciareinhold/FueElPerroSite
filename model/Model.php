@@ -6,11 +6,14 @@ class Model
   protected $db;
   function __construct()
   {
-    try {
+    try
+    {
       $this->db = new PDO('mysql: host=localhost;'
       .'dbname=fueelperro_db;charset=utf8'
       , 'root', '');
-    } catch (Exception $e) {
+    }
+    catch (Exception $e)
+    {
       $this->db = dbModel::getInstance();
       $this->db->buildDBfromFile("fueelperro_db");
       $this->db = new PDO('mysql: host=localhost;'
@@ -18,5 +21,6 @@ class Model
       , 'root', '');
     }
   }
+  
 }
  ?>

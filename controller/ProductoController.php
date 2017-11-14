@@ -6,24 +6,28 @@
 
   class ProductoController extends Controller
   {
-  function __construct(){
-      $this->view = new ProductoView();
-      $this->model = new ProductoModel();
-      $this->categoriaModel = new CategoriaModel();
 
+    function __construct()
+    {
+        $this->view = new ProductoView();
+        $this->model = new ProductoModel();
+        $this->categoriaModel = new CategoriaModel();
+    }
 
-}
-    public function productos(){
+    public function productos()
+    {
       $productos = $this->model->getProductos();
       $categorias= $this->categoriaModel->getCategorias();
       $productos_copia=$productos;
-      $this->view->mostrarProductos($this->obtenerNombres($productos_copia, $categorias));
+      $this->view->mostrarProductos($this->obtenerNombres($productos_copia, $categorias),$categorias);
     }
+
     private function obtenerNombres($productos_copia, $categorias)
     //No lo hacemos en AdminProductoController, porque puede haber dos categorias con el mismo nombre.
     //Y el admin podría estar interesado en el id de la categoria para diferenciarlos.
     {
-      foreach ($productos_copia as  &$producto_copia) {
+      foreach ($productos_copia as  &$producto_copia)
+      {
         $id_categoria=$producto_copia["id_categoria"];
         foreach($categorias as $categoria){
           if($categoria["id_categoria"]==$id_categoria){
@@ -40,8 +44,9 @@
       $delantales= $this->model->getProductosPorCategoria($id_categoria);
       $categorias= $categorias= $this->categoriaModel->getCategorias();
       $delantales_copia= $delantales;
-      $this->view->mostrarProductos($this->obtenerNombres($delantales_copia, $categorias));
+      $this->view->mostrarProductos($this->obtenerNombres($delantales_copia, $categorias), $categorias);
     }
+
     public function productoDetalle()
     {
       session_start();
@@ -65,5 +70,5 @@
       }
       $this->view->mostrarProducto($delantal_copia, $puedeAgregar,$nombreUsuario);
     }
-}
- ?>
+  }
+?>

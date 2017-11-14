@@ -23,7 +23,7 @@ class ConfigApp
       'agregarCategoria'=> 'AdminCategoriaController#createCat',
       'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
       'editarCategoria' => 'AdminCategoriaController#editCat',
-      //ADMIN ABM ITEM
+      //ADMIN ABM ITEM, IMAGES
       'agregarImagenes'=>'AdminProductoController#agregarImagenes',
       'deleteImages'=>'AdminProductoController#borrarImagenes',
       'mostrarEditarProducto' => 'AdminProductoController#showEditProd',

@@ -1,25 +1,34 @@
 <?php
-class UserStaticView extends View
-{
-  function mostrarIndex($status, $is_admin){
-    $this->smarty->assign('admin',$is_admin);
-    $this->smarty->assign('session',$status);
-     $this->smarty->display('templates/index.tpl');
-     }
+  class UserStaticView extends View
+  {
 
-  function mostrarHome(){
-     $this->smarty->display('templates/home.tpl');
-  }
-  function mostrarContacto(){
-    $this->smarty->display('templates/contacto.tpl');
-  }
-  function mostrarProductos(){
-    $this->smarty->display('templates/productos.tpl');
-  }
-  function mostrarPanel(){
-    $this->smarty->display('templates/panelAdmin.tpl');
-  }
+    function mostrarIndex($status, $is_admin)
+    {
+      $this->smarty->assign('admin',$is_admin);
+      $this->smarty->assign('session',$status);
+       $this->smarty->display('templates/index.tpl');
+    }
+
+    function mostrarHome()
+    {
+       $this->smarty->display('templates/home.tpl');
+    }
+
+    function mostrarContacto()
+    {
+      $this->smarty->display('templates/contacto.tpl');
+    }
+
+    function mostrarProductos()
+    {
+      $this->smarty->display('templates/productos.tpl');
+    }
+
+    function mostrarPanel()
+    {
+      $this->smarty->display('templates/panelAdmin.tpl');
+    }
 
   }
 
- ?>
+?>

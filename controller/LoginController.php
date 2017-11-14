@@ -10,10 +10,12 @@ class LoginController extends Controller
     $this->view = new LoginView();
     $this->model = new UsuarioModel();
   }
+
   public function registrarUsuario()
   {
     $this->view->mostrarRegistro();
   }
+
   public function createUser()
   {
     $usuario = $_POST['usuario'];
@@ -33,6 +35,7 @@ class LoginController extends Controller
       $this->view->mostrarRegistro('Ese username ya esta tomado');
     }
   }
+
   public function login()
   {
     $this->view->mostrarLogin();
@@ -60,13 +63,13 @@ class LoginController extends Controller
         }
       }
   }
+
   public function cerrarSesion()
   {
     session_start();
     session_destroy();
     header("Location: ".HOME);
   }
-
 
 }
 

@@ -1,15 +1,17 @@
 <?php
 
-include_once 'libs/Smarty.class.php';
+  include_once 'libs/Smarty.class.php';
 
-class View
-{
-  protected $smarty;
-
-  function __construct()
+  class View
   {
-    $this->smarty = new Smarty();
-    $this->smarty->assign('tituloPagina', 'Fue el Perro');
+    protected $smarty;
+
+    function __construct()
+    {
+      $this->smarty = new Smarty();
+      $this->smarty->assign('tituloPagina', 'Fue el Perro');
+    }
+
   }
-}
- ?>
+
+?>

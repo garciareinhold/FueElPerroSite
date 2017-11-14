@@ -6,14 +6,15 @@
 
   class AdminProductoController extends SecuredController
   {
-  function __construct(){
+
+    function __construct()
+    {
       parent::__construct();
       $this->view = new AdminProductoView();
       $this->model = new ProductoModel();
       $this->catModel = new CategoriaModel();
+    }
 
-}
-  
     public function borrarImagenes()
     {
         $id_imagen= $_POST['id_image'];
@@ -22,6 +23,7 @@
         $producto= $this->model->getProducto($id_producto);
         $this->view->mostrarImagenesProducto($producto);
     }
+
     public function agregarImagenes()
     {
       $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
@@ -31,24 +33,29 @@
       $this->view->mostrarImagenesProducto($producto);
     }
 
-   public function mostrarPanelDelantal(){
+    public function mostrarPanelDelantal()
+    {
      $productos = $this->model->getProductos();
      $categorias= $this->catModel->getCategorias();
      $this->view->mostrarProductos($productos, $categorias);
-   }
-   public function createDel()
-   {
+    }
+
+    public function createDel()
+    {
      $talle = $_POST['talle'];
      $categoria = $_POST['categoria'];
      $descripcion=$_POST['descripcion'];
      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
-    if(!empty($talle) && !empty($categoria)&& !empty($descripcion)){
-      if ($this->aceptaFormato($_FILES['imagenes']['type'])) {
+     if(!empty($talle) && !empty($categoria)&& !empty($descripcion))
+     {
+      if ($this->aceptaFormato($_FILES['imagenes']['type']))
+      {
         $this->model->guardarProducto($talle, $categoria, $descripcion,$rutaTempImagenes);
         $this->mostrarPanelDelantal();
       }
-      else {
+      else
+      {
         $this->view->errorCrear("Las imagenes tienen que ser JPG o PNG.");
       }
     }
@@ -64,39 +71,49 @@
      $producto=$this->model->getProducto($id_producto);
      $this->view->mostrarFormEditar($producto, $categorias);
    }
+
    public function addImages()
    {
      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-     if(isset($rutaTempImagenes)){
+
+     if(isset($rutaTempImagenes))
+     {
        $this->model->guardarImagenes($imagenes,$id_delantal);
      }
      $producto= $this->model->getProducto($id_delantal);
      $this->view->mostrarImagenesProducto($producto);
    }
+
    public function editDel()
    {
      $id= $_POST['id_delantal'];
      $id_categoria = $_POST['categoria'] ;
      $talle = $_POST['talle'];
      $descripcion = $_POST['descripcion'];
-     // $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
-    if(!empty($id_categoria) && !empty($talle)&& !empty($descripcion)){
+
+     if(!empty($id_categoria) && !empty($talle)&& !empty($descripcion))
+     {
         $this->model->editarProducto($id,$talle, $descripcion,$id_categoria);
         $this->mostrarPanelDelantal();
       }
-    else {
+     else
+     {
       $this->view->errorCrear("Debe llenar todos los campos.");
-    }
+     }
    }
+
    public function deleteDel()
    {
        $id_producto = $_POST['id'] ;
        $this->model->borrarProducto($id_producto);
        $this->mostrarPanelDelantal();
    }
-   private function aceptaFormato($imagenesTipos){
+
+   private function aceptaFormato($imagenesTipos)
+   {
        foreach ($imagenesTipos as $tipo) {
-         if($tipo != 'image/jpeg' && $tipo != 'image/png') {
+         if($tipo != 'image/jpeg' && $tipo != 'image/png')
+         {
            return false;
          }
        }

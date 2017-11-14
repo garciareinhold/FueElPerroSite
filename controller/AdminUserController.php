@@ -4,11 +4,12 @@
 
   class AdminUserController extends SecuredController
   {
-    function __construct(){
+      function __construct()
+      {
         parent::__construct();
         $this->model = new UsuarioModel();
         $this->view = new AdminUserView();
-    }
+      }
 
     public function deleteUser()
     {
@@ -17,6 +18,7 @@
       $usuarios=$this->model->getUsuarios();
       $this->view->mostrarUsuarios($usuarios);
     }
+
     public function editUser(){
       $permiso= $_POST["permiso"];
       $id_usuario=$_POST["id"];
@@ -24,12 +26,12 @@
       $usuarios=$this->model->editarUsuario($id_usuario, $permiso);
       $this->view->mostrarUsuarios($usuarios);
     }
+
     public function getUsuarios()
     {
       $usuarios=$this->model->getUsuarios();
       $this->view->mostrarUsuarios($usuarios);
     }
-
 
 }
  ?>

@@ -2,7 +2,7 @@
         <div class="col-md-6 col-md-offset-3">
           <form class="loginForm" action="autenticacion"  method="post">
             <div class="form-group">
-              <label for="usuario">Usuario</label>
+              <label for="usuario">UserName</label>
               <input type="text" class="form-control" id="usuario" name="usuario" placeholder="User" required>
             </div>
             <div class="form-group">
@@ -10,7 +10,7 @@
               <input type="password" class="form-control" id="clave" name ="password" placeholder="Password" required>
             </div>
             <div class="form-group">
-              <label for="mail">Mail</label>
+              <label for="mail">User (Mail)</label>
               <input type="mail" class="form-control" id="mail" name ="mail" placeholder="mail@ejemplo.com" required>
             </div>
             {if !empty($error) }

@@ -1,3 +1,15 @@
 resta por hacer:
+
 	captcha
-	revisar codigo (ordenarlo, refactor para rehuso de código, comentarlo)
+
+	revisar codigo (ya esta ordenado, ver si podemos evitar rehusos de código)
+
+	chequeo de entradas en el servidor:
+
+		registrarse
+		crear delantal, categoria
+		comentario
+
+	error cuando ya existe user con ese Mail
+
+	funcion delete, anda a veces y a veces no
