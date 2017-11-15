@@ -36,7 +36,6 @@ $(document).ready(function(){
       "id_delantal":String(idDelantal),
       "captcha": $("#code").val()
     };
-    console.log(comentario);
       $.ajax({
           method: "POST",
           url: "api/comentario",
@@ -71,7 +70,6 @@ $(document).ready(function(){
 
   function deleteComment(data)
   {
-    console.log("entre en delete comment "+data);
     $.ajax({
         method: "DELETE",
         url: "api/comentario/" + data
@@ -184,7 +182,6 @@ $(document).ready(function(){
   function adminMostrarAjax(result)
   {
       $("#js-pRender").html(result);
-      console.log(result);
 
       $("#agregarImagenes").on("submit", function(event){
         event.preventDefault();
@@ -225,7 +222,6 @@ $(document).ready(function(){
       $("#agregarComentario").on("click", function(event){
         event.preventDefault();
         let data = $(this).data("id");
-        console.log("entre en el binding", data);
         createComment(data);
         refrescarInput();
       })
@@ -305,7 +301,6 @@ $(document).ready(function(){
   $(".navegacion").on("click", function (event) {
     event.preventDefault();
     let seccion_pagina=$(this).attr("id");
-    console.log(seccion_pagina);
       $.ajax({
         url: seccion_pagina,
         success: adminMostrarAjax

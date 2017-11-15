@@ -22,7 +22,7 @@ class LoginController extends Controller
     $clave = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $mail = $_POST['mail'];
 
-    if (!empty($usuario)&&!empty($clave)&&!empty($mail))
+    if (!empty($usuario)&&!empty($clave)&&(filter_var($mail,FILTER_VALIDATE_EMAIL))
     {
       $data= $this->model->guardarUsuario($usuario, $clave, $mail);
       $this->iniciarSesion($data);
