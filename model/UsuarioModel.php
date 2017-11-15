@@ -15,13 +15,13 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function guardarUsuario($usernave, $clave, $mail)
+    public function guardarUsuario($username, $clave, $mail)
     {
       $isAdmin=0;
       $sentencia = $this->db->prepare('INSERT INTO usuario(username,clave,mail,is_admin) VALUES(?,?,?,?)');
-      $sentencia->execute([$usernave,$clave,$mail,$isAdmin]);
+      $sentencia->execute([$username,$clave,$mail,$isAdmin]);
       $id_user= $this->db->lastInsertId();
-      return $this->getUser($id_user);
+      return $this->getUser($username);
     }
 
     public function borrarUsuario($value)
@@ -36,7 +36,7 @@
       $sentencia->execute([$isAdmin, $id_usuario]);
       return $this->getUsuarios();
     }
-    
+
   }
 
  ?>

@@ -50,14 +50,8 @@
     public function productoDetalle()
     {
       session_start();
-      if(isset($_SESSION['USER'])){
-        $puedeAgregar= ($_SESSION['LOGGED'] && $_SESSION['ADMIN'] == 0);
-        $nombreUsuario= $_SESSION['USER'];
-      }
-      else{
-          $puedeAgregar=false;
-          $nombreUsuario=null;
-      }
+      $puedeAgregar= ($_SESSION['LOGGED'] && $_SESSION['ADMIN'] == 0);
+      $nombreUsuario= $_SESSION['USER'];
       $id_delantal= $_POST['id'];
       $delantal= $this->model->getProducto($id_delantal);
       $id_categoria=$delantal["id_categoria"];
@@ -69,6 +63,7 @@
         }
       }
       $this->view->mostrarProducto($delantal_copia, $puedeAgregar,$nombreUsuario);
+      var_dump ($nombreUsuario);
     }
   }
 ?>

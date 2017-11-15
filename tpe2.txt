@@ -2,12 +2,8 @@ resta por hacer:
 
 	captcha
 
-	revisar codigo (ya esta ordenado, ver si podemos evitar rehusos de código)
-
 	chequeo de entradas en el servidor:
 
-		registrarse
 		crear delantal, categoria
-		comentario
-
-	funcion delete, anda a veces y a veces no
+		editar delantal, categoria
+		view, funciones de error.

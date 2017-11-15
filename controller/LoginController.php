@@ -41,7 +41,7 @@ class LoginController extends Controller
   public function iniciarSesion($data)
   {
     session_start();
-    $_SESSION['USER'] = $data[0]["username"];
+    $_SESSION['USER'] = $data[0]['username'];
     $_SESSION['LAST_ACTIVITY'] = time();
     $_SESSION['LOGGED'] = true;
     $_SESSION['ADMIN'] = $data[0]['is_admin'];
