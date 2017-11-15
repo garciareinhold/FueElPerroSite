@@ -1,8 +1,12 @@
 $(document).ready(function(){
   "use strict";
+
+ //INICIALIZAMOS EL INTERVALO
+  let interval = null;
+
   //REST COMENTARIOS
+
   let templateComentarios;
-  var interval = null;
   $.ajax({ url: 'js/templates/comentarios.mst'}).done( template => templateComentarios = template);
 
   function loadComments(idDelantal)
@@ -143,13 +147,18 @@ $(document).ready(function(){
   {
     let productoImagen={id_image: id_imagen, id_product: id_producto};
     $.post("deleteImages",productoImagen, function(data){
-      $("#contenedorImagenes").html(data);
-      $(".borrarImagen").on("click", function(event){
-        event.preventDefault();
-        let id_imagen= $(this).data("id");
-        let id_producto= $(this).data("producto");
-        deleteImage(id_imagen,id_producto);
+      ajaxImagenes(data);
       })
+  }
+
+  function ajaxImagenes(data)
+  {
+    $("#contenedorImagenes").html(data);
+    $(".borrarImagen").on("click", function(event){
+      event.preventDefault();
+      let id_imagen= $(this).data("id");
+      let id_producto= $(this).data("producto");
+      deleteImage(id_imagen,id_producto);
     })
   }
 
@@ -169,13 +178,7 @@ $(document).ready(function(){
           data: form_data,
           type:"post",
           success: function(data){
-            $("#contenedorImagenes").html(data);
-            $(".borrarImagen").on("click", function(event){
-              event.preventDefault();
-              let id_imagen= $(this).data("id");
-              let id_producto= $(this).data("producto");
-              deleteImage(id_imagen,id_producto);
-            })
+            ajaxImagenes(data);
           }
         });
         return false;
