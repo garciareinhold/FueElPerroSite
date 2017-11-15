@@ -8,7 +8,7 @@
     function __construct()
     {
       parent::__construct();
-        
+
       $this->view = new AdminCategoriaView();
       $this->model = new CategoriaModel();
     }
@@ -16,10 +16,10 @@
       //   $this->view->mostrarIndex();
       // }
 
-     public function mostrarCategoria()
+     public function mostrarCategoria($error="")
      {
        $categorias = $this->model->getCategorias();
-       $this->view->mostrarCategorias($categorias);
+       $this->view->mostrarCategorias($categorias, $error);
      }
 
      public function createCat()
@@ -35,7 +35,7 @@
       }
       else
       {
-        $this->view->errorCrear();
+        $this->mostrarCategoria("Debe llenar todos los campos");
       }
      }
 
