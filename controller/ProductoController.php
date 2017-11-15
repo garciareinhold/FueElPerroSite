@@ -58,6 +58,7 @@
       else
       {
         $puedeAgregar=false;
+        $nombreUsuario=null;
       }
       $id_delantal= $_POST['id'];
       $delantal= $this->model->getProducto($id_delantal);

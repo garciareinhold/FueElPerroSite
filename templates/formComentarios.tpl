@@ -3,7 +3,9 @@
     <h2>Déjenos su opinión</h2>
     <div class="form-group hidden">
       <label for="nombre">Usuario:</label>
+      {if $usuario!="null"}
       <input type="text" class="form-control" id="usuario" value="{{$usuario}}" ></input>
+      {/if}
     </div>
     <div class="form-group">
       <label for="exampleSelect1">Puntuación:</label>
