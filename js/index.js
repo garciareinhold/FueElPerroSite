@@ -33,7 +33,8 @@ $(document).ready(function(){
       "puntaje":$('#puntaje').val(),
       "usuario": $('#usuario').val(),
       "descripcion": $('#descripcion').val(),
-      "id_delantal":String(idDelantal)
+      "id_delantal":String(idDelantal),
+      "captcha": $("#code").val()
     };
     console.log(comentario);
       $.ajax({
@@ -51,6 +52,22 @@ $(document).ready(function(){
           alert("Imposible crear el comentario");
       })
   }
+
+  function refrescarInput()
+  {
+    let id= $("#agregarComentario").data("id");
+    let data = {id_producto: id};
+    $.post("refreshInput", data, function(data) {
+      $('#addFormComentarios').html(data);
+      $("#agregarComentario").bind("click", function(event){
+        event.preventDefault();
+        let data = $(this).data("id");
+        createComment(data);
+        refrescarInput();
+      })
+
+    });
+}
 
   function deleteComment(data)
   {
@@ -209,6 +226,7 @@ $(document).ready(function(){
         let data = $(this).data("id");
         console.log("entre en el binding", data);
         createComment(data);
+        refrescarInput();
       })
 
       $( ".editarCat" ).on( "click", function( event ) {

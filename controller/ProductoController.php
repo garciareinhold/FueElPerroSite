@@ -2,6 +2,8 @@
   include_once('model/ProductoModel.php');
   include_once('view/ProductoView.php');
   include_once('model/CategoriaModel.php');
+  require_once('simple-php-captcha-master/simple-php-captcha.php');
+
 
 
   class ProductoController extends Controller
@@ -47,9 +49,25 @@
       $this->view->mostrarProductos($this->obtenerNombres($delantales_copia, $categorias), $categorias);
     }
 
+    public function reloadCaptcha()
+    {
+      session_start();
+      $_SESSION['captcha_array'] = $_SESSION['captcha'] = simple_php_captcha();
+      $image=$_SESSION['captcha_array']['image_src'];
+      $id_delantal= $_POST["id_producto"];
+      $usuario= $_SESSION['USER'];
+      $producto= $this->model->getProducto($id_delantal);
+      $this->view->recargarCaptcha($image,$usuario,$producto);
+      var_dump($image);
+      var_dump($id_delantal);
+      var_dump($usuario);
+    }
+
     public function productoDetalle()
     {
       session_start();
+      $_SESSION['captcha_array'] = $_SESSION['captcha'] = simple_php_captcha();
+      $image=$_SESSION['captcha_array']['image_src'];
       if (isset($_SESSION['USER'])&&!empty($_SESSION['USER']))
       {
         $puedeAgregar= ($_SESSION['LOGGED'] && $_SESSION['ADMIN'] == 0);
@@ -70,7 +88,7 @@
           $delantal_copia["id_categoria"]=$categoria["nombre_categoria"];
         }
       }
-      $this->view->mostrarProducto($delantal_copia, $puedeAgregar,$nombreUsuario);
+      $this->view->mostrarProducto($delantal_copia, $puedeAgregar,$nombreUsuario,$image);
     }
   }
 ?>

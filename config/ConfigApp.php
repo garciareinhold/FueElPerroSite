@@ -24,6 +24,7 @@ class ConfigApp
       'borrarCategoria'=> 'AdminCategoriaController#deleteCat',
       'editarCategoria' => 'AdminCategoriaController#editCat',
       //ADMIN ABM ITEM, IMAGES
+      'refreshInput'=>'ProductoController#reloadCaptcha',
       'agregarImagenes'=>'AdminProductoController#agregarImagenes',
       'deleteImages'=>'AdminProductoController#borrarImagenes',
       'mostrarEditarProducto' => 'AdminProductoController#showEditProd',

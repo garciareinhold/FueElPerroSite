@@ -1,9 +1,3 @@
 resta por hacer:
 
 	captcha
-
-	chequeo de entradas en el servidor:
-
-		crear delantal, categoria
-		editar delantal, categoria
-		view, funciones de error.

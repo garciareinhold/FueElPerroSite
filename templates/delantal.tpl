@@ -13,7 +13,10 @@
       </figure>
       {include file="comentarios.tpl"}
       {if $puedeAgregar}
+      <div id="addFormComentarios">
+
       {include file="formComentarios.tpl"}
+      </div>
       {/if}
   </section>
 </article>

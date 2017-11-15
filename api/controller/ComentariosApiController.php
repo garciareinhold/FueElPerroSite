@@ -65,17 +65,26 @@
         $descripcion = $body->descripcion;
         $puntaje = $body->puntaje;
         $id_delantal = $body->id_delantal;
-        if (!empty($usuario)&&!empty($descripcion)&&!empty($puntaje)&&!empty($id_delantal))
+        $captcha = $body->captcha;
+
+        if (!empty($usuario)&&!empty($descripcion)&&!empty($puntaje)&&!empty($id_delantal)&&!empty($captcha))
         {
-          $comentario=$this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
-          $response= new stdClass();
-          $response->comentario=$comentario;
-          $response->status=200;
-          return $this->json_response($response, 200);
+          if($_SESSION['captcha_array']['code'] == $captcha)
+          {
+            $comentario=$this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
+            $response= new stdClass();
+            $response->comentario=$comentario;
+            $response->status=200;
+            return $this->json_response($response, 200);
+          }
+          else
+          {
+            return $this->json_response("Error", 404);
+          }
         }
         else
         {
-          return $this->json_response(false, 404);
+          return $this->json_response("Error", 404);
         }
       }
       else

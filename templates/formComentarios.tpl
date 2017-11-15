@@ -21,6 +21,10 @@
       <label for="descripcion">Comentario:</label>
       <textarea class="form-control" id="descripcion" rows="3" required></textarea>
     </div>
+    <div class="">
+      <img src="{$captcha}" alt="captcha">
+      <input type="text" class="form-control" id="code" placeholder="Ingresar Captcha" value="" required>
+    </div>
     <button type="submit" id="agregarComentario" data-id="{$producto['id_delantal']}" name="button">Comentar</button>
   </form>
 </div>
