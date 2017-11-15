@@ -184,6 +184,7 @@ $(document).ready(function(){
   function adminMostrarAjax(result)
   {
       $("#js-pRender").html(result);
+      console.log(result);
 
       $("#agregarImagenes").on("submit", function(event){
         event.preventDefault();
@@ -304,6 +305,7 @@ $(document).ready(function(){
   $(".navegacion").on("click", function (event) {
     event.preventDefault();
     let seccion_pagina=$(this).attr("id");
+    console.log(seccion_pagina);
       $.ajax({
         url: seccion_pagina,
         success: adminMostrarAjax

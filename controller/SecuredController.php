@@ -7,7 +7,7 @@ class SecuredController extends Controller
   {
     session_start();
     if(isset($_SESSION['USER'])){
-      if ($_SESSION['ADMIN']==1) {
+      if ($_SESSION['ADMIN']==0) {
         header('Location: '.HOME);
         die();
       }
