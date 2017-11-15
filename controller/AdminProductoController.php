@@ -49,10 +49,20 @@
 
     public function createDel()
     {
-     $talle = $_POST['talle'];
-     $categoria = $_POST['categoria'];
-     $descripcion=$_POST['descripcion'];
-     $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+    if(
+    (isset($_POST['categoria'])) &&
+    (isset($_POST['talle'])) &&
+    (isset($_POST['descripcion'])) &&
+    (isset($_FILES['imagenes']['tmp_name'])) &&
+    (($_POST['categoria']) != null) &&
+    (($_POST['talle']) != null) &&
+    (($_POST['descripcion']) != null) &&
+    (($_FILES['imagenes']['tmp_name']) != null)
+    ){
+       $talle = $_POST['talle'];
+       $categoria = $_POST['categoria'];
+       $descripcion=$_POST['descripcion'];
+       $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
      if(!empty($talle) && !empty($categoria)&& !empty($descripcion)&&!empty($rutaTempImagenes))
      {
@@ -61,12 +71,16 @@
         $this->model->guardarProducto($talle, $categoria, $descripcion,$rutaTempImagenes);
         $this->mostrarPanelDelantal();
       }
-      else
-      {
-        $this->mostrarPanelDelantal("Las imagenes tienen que ser JPG o PNG.");
+        else
+        {
+          $this->mostrarPanelDelantal("Las imagenes tienen que ser JPG o PNG.");
+        }
+      }
+      else{
+        $this->mostrarPanelDelantal("Debe llenar todos los campos.");
       }
     }
-    else{
+    else {
       $this->mostrarPanelDelantal("Debe llenar todos los campos.");
     }
    }
