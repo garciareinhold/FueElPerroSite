@@ -66,19 +66,20 @@
       if ($this->estaLogueado())
       {
         $body = json_decode($this->raw_data);
-        if(isset($body)&& !empty($body))
+        $usuario = $body->usuario;
+        $descripcion = $body->descripcion;
+        $puntaje = $body->puntaje;
+        $id_delantal = $body->id_delantal;
+        if (!empty($usuario)&&!empty($descripcion)&&!empty($puntaje)&&!empty($id_delantal))
         {
-          $usuario = $body->usuario;
-          $descripcion = $body->descripcion;
-          $puntaje = $body->puntaje;
-          $id_delantal = $body->id_delantal;
           $comentario=$this->model->guardarComentario($usuario, $descripcion, $puntaje, $id_delantal);
           $response= new stdClass();
           $response->comentario=$comentario;
           $response->status=200;
           return $this->json_response($response, 200);
         }
-        else {
+        else
+        {
           return $this->json_response(false, 404);
         }
       }

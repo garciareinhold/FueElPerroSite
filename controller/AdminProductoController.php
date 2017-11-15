@@ -36,7 +36,7 @@
       }
       else
       {
-        $this->showEditProd("Debe adjuntar imágenes, recuerde que sean de tipo JPG o PNG")
+        $this->showEditProd("Debe adjuntar imágenes, recuerde que sean de tipo JPG o PNG");
       }
     }
 
