@@ -116,7 +116,7 @@ $(document).ready(function(){
     //binding delete
     setTimeout(function(){loadComments(data);}, 650);
     clearInterval(interval);
-    interval = setInterval(function(){loadComments(data);},2000);
+    interval = setInterval(function(){setTimeout(function(){loadComments(data);}, 250);},2000);
   }
 
   function borrarProd(data)
