@@ -28,9 +28,16 @@
     {
       $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
       $id_producto=$_POST['id_delantal'];
-      $this->model->guardarImagenes($rutaTempImagenes,$id_producto);
-      $producto= $this->model->getProducto($id_producto);
-      $this->view->mostrarImagenesProducto($producto);
+      if(!empty($rutaTempImagenes)&& $this->aceptaFormato($_FILES['imagenes']['type']))
+      {
+        $this->model->guardarImagenes($rutaTempImagenes,$id_producto);
+        $producto= $this->model->getProducto($id_producto);
+        $this->view->mostrarImagenesProducto($producto);
+      }
+      else
+      {
+        $this->showEditProd("Debe adjuntar imágenes, recuerde que sean de tipo JPG o PNG")
+      }
     }
 
     public function mostrarPanelDelantal($error="")
@@ -47,7 +54,7 @@
      $descripcion=$_POST['descripcion'];
      $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
-     if(!empty($talle) && !empty($categoria)&& !empty($descripcion))
+     if(!empty($talle) && !empty($categoria)&& !empty($descripcion)&&!empty($rutaTempImagenes))
      {
       if ($this->aceptaFormato($_FILES['imagenes']['type']))
       {
