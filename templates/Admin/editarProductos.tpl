@@ -3,6 +3,9 @@
     <div class="col-md-6 col-md-offset-3">
       <h1>Editar Producto</h1>
       <span hidden="hidden" id="spanInvisible" data-id="true"></span>
+      {if !empty($error) }
+      <div class="alert alert-danger" role="alert">{$error}</div>
+      {/if}
       <div id="contenedorImagenes">
         {if isset ($producto['imagenes'])}
           {include file="admin/imagenesProducto.tpl"}

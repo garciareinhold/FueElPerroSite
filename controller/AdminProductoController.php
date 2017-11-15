@@ -33,11 +33,11 @@
       $this->view->mostrarImagenesProducto($producto);
     }
 
-    public function mostrarPanelDelantal()
+    public function mostrarPanelDelantal($error="")
     {
      $productos = $this->model->getProductos();
      $categorias= $this->catModel->getCategorias();
-     $this->view->mostrarProductos($productos, $categorias);
+     $this->view->mostrarProductos($productos, $categorias, $error);
     }
 
     public function createDel()
@@ -56,20 +56,20 @@
       }
       else
       {
-        $this->view->errorCrear("Las imagenes tienen que ser JPG o PNG.");
+        $this->mostrarPanelDelantal("Las imagenes tienen que ser JPG o PNG.");
       }
     }
     else{
-      $this->view->errorCrear("Debe llenar todos los campos.");
+      $this->mostrarPanelDelantal("Debe llenar todos los campos.");
     }
    }
 
-   public function showEditProd()
+   public function showEditProd($error="")
    {
      $id_producto = $_POST['id'] ;
      $categorias= $this->catModel->getCategorias();
      $producto=$this->model->getProducto($id_producto);
-     $this->view->mostrarFormEditar($producto, $categorias);
+     $this->view->mostrarFormEditar($producto, $categorias,$error);
    }
 
    public function addImages()
@@ -98,7 +98,7 @@
       }
      else
      {
-      $this->view->errorCrear("Debe llenar todos los campos.");
+      $this->showEditProd("Debe llenar todos los campos.");
      }
    }
 

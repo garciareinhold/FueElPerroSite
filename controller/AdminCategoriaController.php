@@ -39,10 +39,10 @@
       }
      }
 
-     public function showEditCat()
+     public function showEditCat($error="")
      {
        $id_categoria = $_POST['id'] ;
-       $this->view->mostrarFormEditar($id_categoria);
+       $this->view->mostrarFormEditar($id_categoria, $error);
      }
 
      public function editCat()
@@ -58,7 +58,7 @@
         $this->mostrarCategoria();
       }
       else{
-        $this->view->errorCrear();
+        $this->showEditCat("Debe llenar todos los campos");
       }
      }
 

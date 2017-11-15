@@ -2,15 +2,17 @@
   class AdminProductoView extends View
   {
 
-    public function mostrarProductos($productos, $categorias)
+    public function mostrarProductos($productos, $categorias, $error)
     {
+      $this->smarty->assign('error', $error);
       $this->smarty->assign('delantales', $productos);
       $this->smarty->assign('categorias', $categorias);
       $this->smarty->display('templates/Admin/panelProductos.tpl');
     }
 
-    public function mostrarFormEditar($producto, $categorias)
+    public function mostrarFormEditar($producto, $categorias,$error)
     {
+      $this->smarty->assign('error', $error);
       $this->smarty->assign('producto', $producto);
       $this->smarty->assign('categorias', $categorias);
       $this->smarty->display('templates/Admin/editarProductos.tpl');
@@ -21,13 +23,6 @@
       $this->smarty->assign('producto', $producto);
       $this->smarty->display('templates/Admin/imagenesProducto.tpl');
     }
-    //revisar
-    public function errorCrear($error, $producto){
-      $this->smarty->assign('producto', $producto);
-      $this->smarty->assign('error', $error);
-      $this->smarty->display('templates/admin/editarProductos.tpl');
-    }
-
   }
 
  ?>

@@ -66,7 +66,7 @@
       if ($this->estaLogueado())
       {
         $body = json_decode($this->raw_data);
-        if(!empty($body))
+        if(isset($body)&& !empty($body))
         {
           $usuario = $body->usuario;
           $descripcion = $body->descripcion;

@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>Agregar Producto</h1>
-      {if isset($error) }
+      {if !empty($error) }
       <div class="alert alert-danger" role="alert">{$error}</div>
       {/if}
       <form  id="agregarProd"  method="post">

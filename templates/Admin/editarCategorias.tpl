@@ -2,6 +2,9 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>Editar Categoria</h1>
+      {if !empty($error) }
+      <div class="alert alert-danger" role="alert">{$error}</div>
+      {/if}
       <form  class="editarCategorias"  method="post">
         <div class="form-group">
           <label for="id">idCategoria</label>
