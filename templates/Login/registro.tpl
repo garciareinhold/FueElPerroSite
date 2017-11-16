@@ -12,7 +12,7 @@
       </div>
       <div class="form-group">
         <label for="mail">User(Mail)</label>
-        <input type="mail" class="form-control" id="mail" name ="mail" placeholder="mail@ejemplo.com" required>
+        <input type="email" class="form-control" id="mail" name ="mail" placeholder="mail@ejemplo.com" required>
       </div>
       {if !empty($error) }
         <div class="alert alert-danger" role="alert">{$error}</div>

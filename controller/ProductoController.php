@@ -58,9 +58,6 @@
       $usuario= $_SESSION['USER'];
       $producto= $this->model->getProducto($id_delantal);
       $this->view->recargarCaptcha($image,$usuario,$producto);
-      var_dump($image);
-      var_dump($id_delantal);
-      var_dump($usuario);
     }
 
     public function productoDetalle()

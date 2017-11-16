@@ -29,7 +29,7 @@ class LoginController extends Controller
     }
     else
     {
-      $this->view->mostrarRegistro("Debe llenar todos los campos");
+      $this->view->mostrarRegistro("Debe llenar todos los campos, incluya una direccion de mail");
     }
   }
 
